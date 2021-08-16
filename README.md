@@ -136,7 +136,6 @@
 
 ######[⬆回到專案](#後台專案)
 ######[⬆回到專案目錄](#作品集)
-<<<<<<< HEAD
 
 ---
 
@@ -178,48 +177,3 @@
 ######[⬆回到專案目錄](#作品集)
 
 ----
-=======
-
----
-
-#####  #網頁專案
-    自行設計編排整體呈現及rwd，與後端溝通api資料結構
-    搭配jquery及chart.js，透過ajax串接api
-    配合webpack自動化打包流程完成此專案
-![前端畫面](./images/wedDesign/wedDesign-desktop.png)
-![前端畫面](./images/wedDesign/wedDesign-tablet.png)
-![前端畫面](./images/wedDesign/wedDesign-mobile.png)
-
-######[⬆回到專案](#網頁專案)
-######[⬆回到專案目錄](#作品集)
-
-----
-
-#####  #自製圖片輪播套件
-    使用javascript手刻一個自動圖片輪播套件
-    客製化設定輪播速度及內含圖片量，顯示上也有設計rwd
-![前端畫面](./images/superSlider/superSlider.png)
-
-######[⬆回到專案目錄](#作品集)
-
-----
-
-##### #左右閃躲小遊戲
-> 鍵盤操控人物左右移動，分別低、中、高遊戲難度，在一分鐘內閃躲石塊取得分數
-> 透過jQuery設計碰撞判斷及石磚隨機掉落，顯示上也有設計rwd
-
-![前端畫面](./images/game/gameStart.png)
-![前端畫面](./images/game/game.png)
-![前端畫面](./images/game/gameEnd.png)
-######[⬆回到專案](#左右閃躲小遊戲)
-######[⬆回到專案目錄](#作品集)
-
-----
-
-##### 計算機
-    簡單利用javascript設計計算機
-![前端畫面](./images/calculator/calculator.png)
-######[⬆回到專案目錄](#作品集)
-
-----
->>>>>>> 46141c5277523312ca56a77319b1dfa110448271
