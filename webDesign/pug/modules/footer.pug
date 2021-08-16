@@ -1,0 +1,11 @@
+mixin footer(words)
+  footer.footer
+    .footer-content
+      a.footer-logo(href='#')
+      .footer-main
+        ul.footer-sitemap
+          each items in words.sitemap 
+            li
+              a(href='#')!= items
+        span.footer-copyright!= words.copyright
+

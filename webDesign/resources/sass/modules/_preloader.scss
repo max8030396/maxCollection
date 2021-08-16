@@ -1,0 +1,23 @@
+.preloader {
+  padding: 10px 0;
+  text-align: center;
+
+  &.js-hide {
+    display: none;
+  }
+
+  .svg-icon-loading {
+    display: inline-flex;
+    align-items: center;
+
+    svg {
+      display: inline-block;
+    }
+    .preload-text {
+      margin-left: 8px;
+      font-size: 20px;
+      color: #333;
+      font-style: normal
+    }
+  }
+}

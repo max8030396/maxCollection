@@ -1,0 +1,14 @@
+$wrapperWidth: 640px;
+$wrapperHeight: 300px;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+.element{
+  width: $wrapperWidth;
+  height: $wrapperHeight;
+  margin: 50px auto;
+}

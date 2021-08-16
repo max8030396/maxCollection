@@ -1,0 +1,156 @@
+include ./modules/base
+- var topperWords = self.htmlWebpackPlugin.options.data.topper;
+- var footerWords = self.htmlWebpackPlugin.options.data.footer;
+- var pageWords = self.htmlWebpackPlugin.options.data.base;
+
+
++headMeta(pageWords)
+  +topper(topperWords, 8)
+  //- Main Container
+  //- css要改Container!!!!!
+  main.container
+    // 區塊01
+   
+
+    section.sec1
+      .s1_block
+        a.s1_block_logo(href="")
+        input.s1_inputer(type="text" placeholder=pageWords.words.sec1.placeholder)
+        .s1_rwd_search.searchBtn!= pageWords.words.sec1.search
+      .s1_search.searchBtn!= pageWords.words.sec1.search
+    
+    // 5/4新增介紹及功能說明
+    section.description
+      .description_introduce
+        h1 史塔克實驗室新功能<br>風向觀測站
+        span <br>網路上時常有眾多的新聞及輿論<br>這些新聞輿論資訊都會反映現在股價的短暫趨勢<br>而我們使用文字探勘的技術<br>把一些新聞資源整理到網頁上<br>並讓大家可以簡單的看出現在市場上情緒的風向往哪邊吹<br>在上面搜尋欄位輸入你想查詢的關鍵字(公司名稱)<br>來試用看看我們的新功能吧！
+      .description_introduce_s3
+        h1 新聞情緒溫度計
+        a.description_introduce_s3_img
+        .description_introduce_s3_text
+          span <br>從PTT、Google、Yahoo的資料觀察<br>二週內新聞來源對'關鍵字'的情緒風向是什麼？
+
+      .description_introduce_s4
+        h1  看多、看空資料分析
+        a.description_introduce_s4_img
+        .description_introduce_s4_text
+          span <br>使用文字雲 分析 抓出來的資料<br>視覺化正面,負面的用詞給大家觀察
+
+    // 區塊02
+    section.sec.sec2.js_hide
+      //- 新聞列表選擇區
+      .s2_block
+        //- each items ,index in pageWords.words.sec2
+        //-   nav.s2_block_nav(class=`s2_nav${index + 1}` data-mode=`${items}` data-index=`${index}`)!= items
+        nav.s2_block_nav.s2_nav1.js_active(data-mode= "ptt" data-index= 0)!= "PTT"
+        nav.s2_block_nav.s2_nav2(data-mode= "google" data-index= 1)!= "Google"
+        nav.s2_block_nav.s2_nav3(data-mode= "yahoo" data-index= 2)!= "Yahoo"
+    // 區塊03
+    section.sec.sec3.js_hide
+      .s3_block
+        //- 各家新聞
+        .s3_block_left
+          h1!= pageWords.words.sec3.title
+          ul.s3_block_left_ul
+          .apiNoData.eachNews
+              span 暫無資料
+          h1.rwd_s3_block_left_h1 情緒溫度計(看空0-100看多)
+        .s3_block_right
+          h1.rwd_s3_block_right_h1 情緒溫度計(看空0-100看多)
+          //- 半圓中間
+          .circle
+          //- 半圓外圈數字
+          .outSideCircle
+            .bar.bar0
+              span 0
+            .bar.bar10
+              span 10
+              .line
+            .bar.bar20
+              span 20
+              .line
+            .bar.bar30
+              span 30
+              .line
+            .bar.bar40
+              span 40
+              .line
+            .bar.bar50
+              span 50
+              .line
+            .bar.bar60
+              span 60
+              .line
+            .bar.bar70
+              span 70
+              .line
+            .bar.bar80
+              span 80
+              .line
+            .bar.bar90
+              span 90
+              .line
+            .bar.bar100
+              span 100
+          //- 半圓內部背景色
+          .circleBg
+            .pointer
+            .pointerHead
+
+    //區塊04
+    section.sec.sec4.js_hide
+      .s4_block
+        .s4_block_left
+          //- 文字雲及長條圖標題
+          .s4_block_left_innerBox
+            h1 看多情緒用詞 文字雲及長條圖
+            //- 文字雲
+            .s4_block_left_box1
+              #s4_block_left_box1_cloud1.textCloud1
+            //- 能量條
+            .s4_block_left_box2
+              canvas#s4_block_left_box2_barChart1
+            .apiNoData.positiveNews
+              span 查無資料
+          //- //- 文字雲
+          //- .s4_block_left_box1
+          //-   #s4_block_left_box1_cloud1.textCloud1
+          //- //- 能量條
+          //- .s4_block_left_box2
+          //-   canvas#s4_block_left_box2_barChart1
+          //- 正面情緒文章
+          .s4_block_left_box3
+            h1!= pageWords.words.sec4.positive
+            ul.s4_block_left_box3_ul.s4_block_positive
+            .apiNoData.positiveNews
+              span 查無資料
+        .s4_block_right
+          //- 文字雲及長條圖標題
+          .s4_block_right_innerBox
+            h1 看空情緒用詞 文字雲及長條圖
+            //- 文字雲
+            .s4_block_right_box1
+              #s4_block_right_box1_cloud2.textCloud2
+            //- 能量條
+            .s4_block_right_box2
+              canvas#s4_block_right_box2_barChart2
+            .apiNoData.negativeNews
+              span 查無資料
+          //- //- 文字雲
+          //- .s4_block_right_box1
+          //-   #s4_block_right_box1_cloud2.textCloud2
+          //- //- 能量條
+          //- .s4_block_right_box2
+          //-   canvas#s4_block_right_box2_barChart2
+          //- 負面情緒文章
+          .s4_block_right_box3
+            h1!= pageWords.words.sec4.negative
+            ul.s4_block_right_box3_ul.s4_block_negative
+            .apiNoData.negativeNews
+              span 查無資料
+
+
+
+  //- Footer
+  +footer(footerWords)
+

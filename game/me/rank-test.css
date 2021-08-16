@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.rank {
+    width: 500px;
+    height: 200px;
+    background-color: rgb(177, 164, 164);
+    margin: auto;
+}

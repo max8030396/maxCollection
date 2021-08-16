@@ -1,0 +1,16 @@
+mixin topper(words, activeIndex)
+  .topper
+    .topper-content
+      .topper-mobile-opener
+      a.topper-logo(href="#")!= 'StartLab'
+      .topper-navbar
+        each item, index in words.topper
+          if item.text === '指標紅綠燈' || item.text === '風險評估機器'
+          else
+            a(
+              href=`${item.url}`
+              class= `${index + 1 === activeIndex ? 'js-selected' : ''}`
+              target=`${item.blank ? '_blank' : '_self'}`)
+              div
+                i.icons(class=`icons-${item.iconType}`)
+              span.font-regular!= `${item.text}`

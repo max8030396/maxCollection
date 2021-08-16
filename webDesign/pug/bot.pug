@@ -1,0 +1,57 @@
+include ./modules/base
+- var topperWords = self.htmlWebpackPlugin.options.data.topper;
+- var footerWords = self.htmlWebpackPlugin.options.data.footer;
+- var pageWords = self.htmlWebpackPlugin.options.data.base;
+
++headMeta(pageWords)
+  +topper(topperWords, 3)
+  //- Main Container
+  main.container
+    .bot-content
+      section.s1
+        .s1-block
+          figure
+
+      +preloader(30, '#333')
+
+
+      section.s2
+        .s2-block
+          //- 如果存在 performance 文案
+          if pageWords.performance
+            each items, index in pageWords.performance
+              .score.box-shadow(class=`score-${items.class}`)
+                .score-title.font-bold!= items.title
+                .score-value.score-value-1
+                  span.font-bold.score-value-title!= items.subTop
+                  span.font-bold.score-value-data!='NaN'
+                .score-value.score-value-2
+                  span.font-bold.score-value-title!= items.subBottom
+                  span.font-bold.score-value-data!='NaN'
+
+            
+      section.s3
+        .s3-block
+          //- 如果存在 target 文案
+          if pageWords.target
+            each items, index in pageWords.target
+              .s3-content(class=`content-${items.class}`)
+                .s3-content-title.font-bold!= items.titleHL
+                  span!= items.title
+                .s3-content-score.box-shadow
+                  each scoreItem in items.data
+                    div.score-content(class=`score-${scoreItem.class}`)
+                      .s3-content-score-title.font-medium!= scoreItem.title
+                      .s3-content-score-value.font-bold!= 'NaN'
+
+                  .s3-content-control
+                    each linkItems in items.button
+                      a(href=`${linkItems.link}` target=`${linkItems.blank ? '_blank' : ''}`)
+                        i.icons-direct
+                        span.font-regular!= linkItems.text
+
+
+
+  //- Footer
+  +footer(footerWords)
+
