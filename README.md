@@ -1,20 +1,13 @@
 
-<<<<<<< HEAD
 # 您好！我是周子平
 這是我的 ➡ [作品集](#作品集) 
-=======
-# 周子平的 [作品集](#作品集) 
->>>>>>> 46141c5277523312ca56a77319b1dfa110448271
+
 ```json
 {
   "results": [{
     "name": "周子平",
     "age": "26",
-<<<<<<< HEAD
-    "personality":"positive",
-=======
     "personality":"awesome",
->>>>>>> 46141c5277523312ca56a77319b1dfa110448271
     "intro":
     [{
       "content":"您好，我是周子平，雖然我非本科生也不是名門大學畢業，在因緣際會下認識到前端這份職業，我覺得非常有挑戰性，我喜歡學習新知，面對任何事我都會全力以赴，負責到底。",
@@ -33,7 +26,6 @@
       "framework": "Vue 2.x",
       "javascript":
       [{
-<<<<<<< HEAD
           "code":["ES5","ES6","jQuery","Pug"]
         },
         {
@@ -41,21 +33,11 @@
         }],
       "style": ["Sass/Scss","Css","Bootstrap5"],
       "tool": ["Webpack4","Node.js","GitHub"]
-=======
-          "code":["ES5","ES6","Jquery","Pug"]
-        },
-        {
-          "api":["axios","ajax"]
-        }],
-      "style": ["Sass/Scss","Css","Bootstrap5"],
-      "tool":: ["Webpack4","Node.js","git"]
->>>>>>> 46141c5277523312ca56a77319b1dfa110448271
+
     }
   }]
 }
 ```
-<<<<<<< HEAD
-
 ----
 ## 作品集 
 ![qrcode](./images/qrcode.png)
@@ -67,21 +49,6 @@
 * [計算機](#計算機)
 * [➡ go github](https://github.com/max8030396/maxCollection "github")
 
-=======
-
-----
-## 作品集 
-
-
-* [後台專案](#後台專案)
-* [網頁專案](#網頁專案)
-* [superSliderPlugin](#自製圖片輪播套件) *自製圖片輪播套件*
-* [左右閃躲小遊戲](#左右閃躲小遊戲)
-* [計算機](#計算機)
-* [➡ go github](https://github.com/max8030396/maxCollection "github")
-
->>>>>>> 46141c5277523312ca56a77319b1dfa110448271
- 
 #####  #後台專案
   
     自行設計編排整體呈現及rwd，運用axios串接大量的api及模組化概念
