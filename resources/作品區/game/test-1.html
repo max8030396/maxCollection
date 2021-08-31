@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>閃磚塊小遊戲</title>
+    <link rel="stylesheet" href="test-1.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="test-1.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 遮罩 -->   
+        <div class="mask">
+            <div class="choose">
+                <div class="option mode easy-mode" data-mode="1">Easy</div>
+                <div class="option mode normal-mode" data-mode="2">Normal</div>
+                <div class="option mode hard-mode" data-mode="3">Hard</div>
+                <div class="option reset" data-mode="4"></div>
+            </div>
+            <div class="startPress"></div>
+        </div>
+        <a href="javascript:window.location.reload()" class="reStart">重新開始</a>
+        <!-- 場景元素 -->
+        <div class="point">0</div>
+        <div class="timer">0</div>
+        <div class="man"></div>
+        <div class="stone stone-1"></div>
+        <div class="stone stone-2"></div>
+        <div class="stone stone-3"></div>
+        <div class="scoreboard"></div>
+    </div>
+</body>
+</html>
