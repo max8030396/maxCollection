@@ -1,0 +1,218 @@
+include ./module/base
+include ./module/components
+include ./module/svg
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+  body
+    .wrapper
+      .indexContainer
+        +sideBar('scoop')
+        form.scoop
+          .topper.row
+            .scoopTitle.col-12
+              h5.font-lg 標題
+              input.font-md.form-control.scoopText-tp-1(type="text" placeholder="請填入標題")
+            .scoopAuthor.abreast
+              h5.font-lg 作者
+              input.font-md.form-control.scoopText-tp-2(type="text" placeholder="請填入作者")
+            .scoopEditor.abreast
+              h5.font-lg 編輯
+              input.font-md.form-control.scoopText-tp-4(type="text" placeholder="請填入編輯")
+            .scoopType.col-12
+              h5.font-lg 類別
+              input.font-md.form-control.scoopText-tp-3(type="text"  placeholder="請填入類別")
+            
+            //- .spThumbSrc.col-12
+            //-   h5.font-lg 縮圖
+            //-   .scoopImg.spThumbSrcImg(data-bs-toggle="modal" data-bs-target="#imgPreview" data-bs-whatever="imgPreview")
+            //-     span.font-sm
+            //-     figure
+            //-   .scoopUploadBtn.scoopUploadBtn-thumb
+            //-     .font-md.btn.upLoadImgBtn(data-bs-toggle="modal" data-bs-target="#upload_img_modal" data-bs-whatever="upload_img_modal" imgLocation="spThumbSrc" imgIndex="1" changeImg=false) 編輯
+            //-     .font-md.btn.deleteImgBtn(imgLocation="spThumbSrc" imgIndex="1" ) 刪除
+            //-     span.font-md.upLoadImgLink
+
+          .banner
+            //- 段落
+            .bannerBt
+              h5.font-lg 文章段落
+              //- section.sec(class='secBt-1')
+              //-   .infoList
+              //-     .infoList-num
+              //-       span.font-lg 段落1
+              //-     //- .font-md.btn.deleteBtn(deletebtnum="1" type="button")
+              //-     .font-md.deleteBtn(deletebtnum="1" type="button")
+              //-       //- svg(xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#b34c56" class="bi bi-x-circle" viewBox="0 0 16 16")
+              //-       //-   path(d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z")
+              //-       //-   path(d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z")
+              //-       //- svg(xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#b34c56" class="bi bi-x-square" viewBox="0 0 16 16")
+              //-       //-   path(d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z")
+              //-       //-   path(d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z")
+              //-       //- svg(xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#b34c56" class="bi bi-trash" viewBox="0 0 16 16")
+              //-       //-   path(d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z")
+              //-       //-   path(fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z")
+              //-       //- svg(xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#676767" class="bi bi-backspace" viewBox="0 0 16 16")
+              //-       //-   path(d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z")
+              //-       //-   path(d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z")
+              //-   .scoopInfoImg-top
+              //-     .scoopImg
+              //-       span.font-sm 上方圖片
+              //-       figure
+              //-     .scoopUploadBtn.scoopUploadBtn-top
+              //-       .font-md.btn.upLoadImgBtn(data-bs-toggle='modal' data-bs-target='#upload_img_modal' data-bs-whatever='upload_img_modal' imglocation='img_up' imgindex='1') 編輯
+              //-       .font-md.btn.deleteImgBtn(imglocation='img_up' imgindex='1') 刪除
+              //-   .scoopInfoImg-down
+              //-     .scoopImg
+              //-       span.font-sm 下方圖片
+              //-       figure
+              //-     .scoopUploadBtn.scoopUploadBtn-down
+              //-       .font-md.btn.upLoadImgBtn(data-bs-toggle='modal' data-bs-target='#upload_img_modal' data-bs-whatever='upload_img_modal' imglocation='img_down' imgindex='1') 編輯
+              //-       .font-md.btn.deleteImgBtn(imglocation='img_down' imgindex='1') 刪除
+
+              //-   .content-header
+              //-     h5.font-lg 小標
+              //-     input.font-md.form-control.header(type='text' placeholder='無小標題可跳過')
+              //-   .content
+              //-     h5.font-lg 內文
+              //-     textarea.font-md.form-control.info(type='text' placeholder='請填寫段落文章')
+            button.font-md.addSectionBtn.addBtn(type="button") ＋新增段落
+
+            //- 出處 
+            .bannerTp
+              h5.font-lg 出處說明
+              //- section.sec.secTp-1
+              //-   .originList
+              //-     span.font-lg.originList-num 1
+              //-   .origin
+              //-     .originDescription
+              //-       input.font-md.form-control.description(type='text' placeholder='請填入出處說明')
+              //-     .originUrl
+              //-       textarea.font-md.form-control.url(type='text' placeholder='請填入出處網址')
+              //-   .originToolBtn
+              //-     .font-md.btn.emptyBtn(emptytpnum='1' type='button')
+              //-       span.font-md 清空
+              //-     .font-md.btn.deleteBtn(deletetpnum='1' type='button')
+              //-       span.font-md 刪除
+            button.font-md.addSourceBtn.addBtn(type="button") ＋新增出處
+
+          
+
+            
+
+          .footer
+            a.font-lg.btn.backToScoopBtn(href="scoop.html") 關閉
+            button.font-lg.btn.previewBtn(type="button" data-bs-toggle="modal" data-bs-target="#moreBtn" data-bs-whatever="moreBtn") 下一步
+          //-點擊預覽顯示區
+        .modal.fade#upload_img_modal(moreBtn="-1" aria-labelledby="upload_img_modalLabel" aria-hidden="true")
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  h5.modal-title 上傳圖片
+                  span.font-md.imgText
+                .modal-body
+                  span.font-md 僅支援JPG/PNG格式<br>寬高必須為像素大於300*300的圖片
+                  input.font-md.form-control.imgNewTitle(type="text" placeholder="請填入檔名")
+                  input.font-md.form-control.col-12#scoopImg-upLoad(type="file" accept=".jpg, .png")
+                  //- input.font-md.form-control.col-12#scoopImg-img_up(type="file" accept=".jpg, .png")
+                  //- input.font-md.form-control.col-12#scoopImg-img_down(type="file" accept=".jpg, .png")
+                    
+                .modal-footer
+                  .btn.uploadImgBtn-close(data-bs-dismiss="modal") 取消
+                  .btn.uploadImgBtn-sendOut(data-bs-dismiss="modal") 上傳
+        
+        .modal.fade#moreBtn(moreBtn="-1" aria-labelledby="moreBtnLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false")
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  h5.modal-title 文章預覽區
+                .modal-body
+                  ul.moreDetailUl.row
+                    //- ID
+                    li.moreDetailLi.col-6
+                      .moreDetailTag
+                        h5.font-lg 編號
+                      .moreDetailSpace
+                        span.font-md
+                    //- 作者
+                    li.moreDetailLi.col-6
+                      .moreDetailTag
+                        h5.font-lg 作者
+                      .moreDetailSpace
+                        span.font-md.moreDetail-status-1
+                    //- 類別
+                    li.moreDetailLi.col-6
+                      .moreDetailTag
+                        h5.font-lg 類別
+                      .moreDetailSpace
+                        span.badge.font-md.moreDetail-status-3
+                    //- 編輯
+                    li.moreDetailLi.col-6
+                      .moreDetailTag
+                        h5.font-lg 編輯
+                      .moreDetailSpace
+                        span.font-md.moreDetail-status-2
+                    //- 標題
+                    li.moreDetailLi.col-12
+                      .moreDetailTag
+                        h5.font-lg 標題
+                      .moreDetailSpace
+                        span.font-md.moreDetail-status-4
+                    //- //- 縮圖
+                    //- li.moreDetailLi.col-12
+                    //-   .moreDetailTag
+                    //-     h5.font-lg 縮圖
+                    //-   .moreDetailSpace.moreDetail-status-6
+                    //-     figure
+                    //-     span.font-md
+                        
+                    //- 段落
+                    li.moreDetailLi.col-12.sectionList
+                      .accordion.accordion-flush.w-100#sectionList
+                        //- .accordion-item
+                        //-   .accordion-header
+                        //-     button.font-lg.btn.accordionBtn.collapsed(type="button" data-bs-toggle="collapse" data-bs-target=".section-1")
+                        //-       h5.font-lg 段落一
+                        //-     .accordion-collapse.collapse.section-1
+                        //-       ul.font-md.accordion-body
+                        //-         li.moreDetailLi
+                        //-           .moreDetailSpace
+                        //-             figure
+                        //-         li.moreDetailLi.flex-wrap
+                        //-           .moreDetailTag
+                        //-             h5.font-lg 別懷疑這是一個小標題
+                        //-           .moreDetailSpace.flex-column.w-100
+                        //-             span.font-md 日本外務大臣茂木敏充最新在例行記者會宣布，將追加捐贈台灣100萬劑AZ疫苗。這已經是日本第三次捐贈疫苗給台灣，前兩次分別是6月4日與7月8日，累計237萬AZ疫苗劑抵台，再加上最新宣布的100萬劑，日本捐贈數量已達337萬劑。
+                        //-         li.moreDetailLi
+                        //-           .moreDetailSpace
+                        //-             figure
+                    //- 來源說明
+                    li.moreDetailLi.col-12.sourceList
+                      .accordion.accordion-flush.w-100
+                        .accordion-item
+                          .accordion-header
+                            button.font-lg.btn.accordionBtn.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#sourceList")
+                              h5.font-lg 出處說明
+                          .accordion-collapse.collapse#sourceList
+                            ul.font-md.accordion-body
+                              //- li
+                              //-   a 顯示的東西
+                .modal-footer
+                  button.btn.closeBtn(data-bs-dismiss="modal") 上一步
+                  button.btn.editBtn-sendOut(data-bs-dismiss="modal") 確認更新
+
+        .modal.fade#imgPreview(aria-labelledby="imgPreviewLabel" aria-hidden="true")
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  h5.modal-title 預覽圖片
+                  button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
+                .modal-body
+                  img.img-fluid(src="../images/sp_20210601_1.jpg", alt="") 
+                .modal-footer
+                  button.btn.closeBtn(data-bs-dismiss="modal") 關閉
+        +components('alertLogoutPopup')

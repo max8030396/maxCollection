@@ -1,0 +1,464 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./module/sideBar.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--theme-wrapper-bg);
+
+  //a標籤設定
+  a {
+    text-decoration: none;
+    color: #ababab;
+
+    &:hover {
+      color: #f1f3f5;
+    }
+  }
+
+  // input
+  input {
+    padding: 6px 12px;
+    border-radius: 0 5px 5px 0;
+    color: var(--theme-form-text);
+    background-color:var(--theme-form-bg);
+    transition: width 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    border: none; //外框
+    outline: none; //外框效果 
+    // caret-color: #f8f8f9; //指定色
+    &:focus{
+      box-shadow: var(--theme-form-box-focus) 0 0 0 2px;
+    }
+  }
+}
+
+.wrongSearch {
+  width: 100%;
+  height: 54px;
+  font-size: 30px;
+  color: #edeff1;
+}
+
+//bootstrap badge顏色及基礎設定調整
+.badge {
+  background-color: var(--theme-badge-bg);
+  padding: 6px 12px;
+  font-size: 1rem;
+  color: var(--theme-badge-text);
+  margin: 5px;
+}
+
+//bootstrap Btn(調整成夜視版顏色)
+.btn {
+  color: var(--theme-btn-text);
+  background-color: var(--theme-btn-normal-bg);
+  border:  none;
+  &:hover {
+    color: var(--theme-btn-text-hover);
+    background-color: var(--theme-btn-normal-bg-hover);
+  }
+  &:focus {
+    background-color: var(--theme-btn-normal-bg-hover);
+    box-shadow: none;
+    outline: 0;
+  }
+}
+
+//bootstrap from表表單顏色及基礎設定調整
+.form-label {
+  width: 70px;
+  text-align: center;
+  padding: 5px;
+  color: #a9a9a9;
+}
+
+.form-control {
+  margin-left: 10px;
+  background-color: var(--theme-form-bg);
+  color: var(--theme-form-text);
+
+  &:disabled{
+    background-color: var(--theme-form-disabled);
+    opacity: 1;
+  }
+}
+
+.form-select {
+  margin-left: 10px;
+  background-color: var(--theme-form-bg);
+  color: var(--theme-form-text);
+
+  &:focus {
+    background-color: #fff;
+  }
+  &:disabled{
+    background-color: var(--theme-form-disabled);
+    opacity: 1;
+  }
+}
+
+//bootstrap 分頁標籤(配色及基本設定調整) 強行變更，因為bootstrap內建有設置focus所以套用他的設定產生一個新tag
+// 原標籤.page-link >> .pageLink
+.paginationJs {
+  margin: 0 !important;
+  margin-top: 1rem !important;
+
+  .pagination {
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    .pageLink {
+      padding: 0.375rem 0.75rem;
+      margin-left: -1px;
+      margin-bottom: 5px;
+      background-color: var(--theme-page-bg);
+      color: var(--theme-page-text);
+      position: relative;
+      display: block;
+      text-decoration: none;
+      transition: color 0.09s ease-in-out, background-color 0.09s ease-in-out;
+      
+      &:hover {
+        color: var(--theme-page-text-hover);
+      }
+    }
+
+    .js-select {
+      background-color: var(--theme-page-text-focus);
+      color: var(--theme-page-text-hover);
+      z-index: 3;
+    }
+  }
+}
+
+//bootstrap 彈跳視窗樣式(調整成夜視版顏色)
+.modal-content {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+.modal-header {
+  padding: 1rem 1rem 0;
+  background-color: var(--theme-modal-bg);
+  border: none;
+  color: var(--theme-modal-text);
+  
+  .btn-close {
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+  }
+}
+.modal-body {
+  background-color: var(--theme-modal-bg);
+  color: var(--theme-modal-text);
+
+  //單獨設定預覽視窗
+  .moreDetailUl {
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+
+    .moreDetailLi {
+      display: flex;
+      padding: 10px;
+      align-items: center;
+      margin-bottom: 6px;
+      background-color: var(--theme-modal-infoBg);
+
+      //標籤樣式
+      .moreDetailTag {
+        display: inline-block;
+        padding: 5px;
+        align-items: center;
+        justify-content: space-around;
+
+        h5 {
+          color: var(--theme-modal-tag);
+          margin-bottom: 0;
+          white-space: nowrap;
+        }
+      }
+      
+      //文字內容顯示區
+      .moreDetailSpace {
+        width: 85%;
+        margin-left: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow-y: auto;
+      }
+    }
+    
+    .moreDetailGroup {
+      margin: 10px 15px 0px;
+      display: flex;
+      justify-content: space-around;
+      
+      //顯示樣式及基礎設定
+      .moreDetailBox {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+.modal-footer {
+  border: none;
+  background-color: var(--theme-modal-bg);
+  padding-top: 0;
+
+  .addBtn {
+    background-color: var(--theme-btn-green);
+    color: var(--theme-btn-text);
+    padding: 6px 12px;
+  
+    &:hover {
+      background-color: var(--theme-btn-green-hover);
+      color: var(--theme-btn-text-hover);
+    }
+  }
+}
+
+//bootstrap 彈跳視窗樣式(更多資訊)
+#moreBtn {
+  //編輯前顯示資料
+  .jsEditBefore {
+    display: flex;
+  }
+  //更多按鈕編輯後顯示資料
+  .jsEditAfter {
+    display: none;
+    margin-bottom: 5px;
+  }
+  .modal-header {
+    //編輯圖示按鈕
+    .modal-title {
+      display: flex;
+      align-items: center;
+      svg {
+        vertical-align: text-top;
+      }
+    }
+    .editBtn {
+      border:1px solid transparent;
+      background-color: transparent;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+  //更多按鈕彈跳視窗中間內容
+  .modal-body {
+    //更多按鈕文字內容顯示區
+    .moreDetailSpace {
+      figure {
+        width: 50%;
+        margin: 0;
+        padding-bottom: 26%;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  .modal-footer {
+    //取消鍵
+    .editBtn-cancel {
+      margin-left: 8px;
+      
+      background-color: var(--theme-btn-red);
+
+      &:hover {
+        background-color: var(--theme-btn-red-hover);
+      }
+    }
+
+    //送出鍵
+    .editBtn-sendOut {
+      margin-left: 8px;
+      background-color:var(--theme-btn-green);
+      
+      &:hover {
+        background-color: var(--theme-btn-green-hover);
+      }
+    }
+  }
+}
+
+//bootstrap 彈跳視窗樣式(刪除會員警示色)
+.delete-modal {
+  .modal-header {
+    background-color: var(--theme-modal-warningBg1);
+    border: none;
+  }
+  .modal-body {
+    background-color: var(--theme-modal-warningBg2);
+    color: var(--theme-modal-warningBg1);
+  }
+  .modal-footer {
+    background-color: var(--theme-modal-warningBg2);
+    justify-content: space-around;
+    border: none;
+  }
+}
+.delete-modalBtn {
+  background-color: var(--theme-btn-warning);
+  color: var(--theme-btn-text);
+
+  &:hover {
+    background-color: var(--theme-btn-warning-hover);
+    color: var(--theme-btn-text-hover);
+  }
+}
+
+//文字大小設定
+.font-xl {
+  font-size: 40px;
+}
+.font-x {
+  font-size: 24px;
+}
+.font-lg {
+  font-size: 18px;
+}
+.font-md {
+  font-size: 16px;
+}
+.font-sm {
+  font-size: 14px;
+}
+
+//js動態隱藏，(自動功能)階層問題所以在那邊要額外新增
+.js-hide {
+  display: none;
+}
+
+// 強制登出popup
+#logoutAlert {
+  width: 100%;
+  svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  .modal-title {
+    color: var(--theme-btn-warning);
+    font-weight: bolder;
+  }
+  .modal-header {
+    justify-content: center;
+  }
+  .modal-footer {
+    justify-content: space-around;
+  }
+  .modal-body {
+    text-align: center;
+  }
+
+  .countDownTime {
+    color: var(--theme-btn-warning);
+  }
+  .logoutBtn {
+    background-color: var(--theme-btn-warning);
+
+    &:hover {
+      background-color: var(--theme-btn-warning-hover);
+    }
+  }
+
+  .stayBtn {
+    background-color: var(--theme-btn-green);
+
+    &:hover {
+      background-color: var(--theme-btn-green-hover);
+    }
+  }
+}
+
+//主題色彩
+:root {
+  --theme-doctor: #ef6357;
+  --theme-normal: #009fa5;
+
+  --theme-sideBar-bg: #212121;
+  --theme-wrapper-bg: #242526;
+  --theme-info-bg: #424242;
+  --theme-border: #424242;
+  --theme-info-text: #f8f8f9;
+
+  // --theme-main2-text-dark: #929292;
+  // --theme-main2-text-middle1: #a9a9a9;
+  // --theme-main2-text-middle2: #b6babf;
+  // --theme-main2-text-middle3: #ddd2d3;
+
+  --theme-btn-warning: #d8374d;
+  --theme-btn-warning-hover: #dc2b43;
+  --theme-btn-green: #48845f;
+  --theme-btn-green-hover: #3d8a5a;
+  --theme-btn-red: #b34c56;
+  --theme-btn-red-hover: #c74a56;
+  --theme-btn-normal-bg: #424242;
+  --theme-btn-normal-bg-hover: #494c4e;
+  --theme-btn-dark-bg: #242526;
+  --theme-btn-login-bg: #2b7075;
+  --theme-btn-text: #ddd2d3;
+  --theme-btn-text-hover: #f8f8f9;
+
+  --theme-page-bg: #424242;
+  --theme-page-focus: #242526;
+  --theme-page-text: #929292;
+  --theme-page-text-hover: #d0d0d0;
+
+  --theme-modal-bg: #242526;
+  --theme-modal-infoBg: #323435;
+  --theme-modal-warningBg1: #d8374d;
+  --theme-modal-warningBg2: #dadada;
+  --theme-modal-tag: #a9a9a9;
+  --theme-modal-text: #e0dddd;
+
+  --theme-badge-bg: #242526;
+  --theme-badge-text: #f8f8f9;
+
+  --theme-form-bg: #bdbdbd;
+  --theme-form-text: #494c4e;
+  --theme-form-disabled: #7b7b7b;
+  --theme-form-box-focus: #0774c1;
+}
+
+//rwd
+@media all and (max-width:1024px) {
+  .font-xl {
+    font-size: 32px;
+  }
+  .font-x {
+    font-size: 18px;
+  }
+  .font-lg {
+    font-size: 16px;
+  }
+  .font-md {
+    font-size: 14px;
+  }
+
+  .badge {
+    font-size: 12px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+}
+// ---------------------------- article ----------------------------
+// ---------------------------- user ----------------------------
+// ---------------------------- login ----------------------------
+// ---------------------------- autoFunction ----------------------------
+// ---------------------------- index ----------------------------

@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "XXX",
+    "keyword": "XXX",
+    "describe": "XXX"
+  },
+  "words": {
+    "sec1": {
+      "placeholder" :"輸入股票名稱或代號",
+      "search" : "搜尋"
+    },
+    "sec2": ["PTT", "Google", "Yahoo"],
+    "sec3": {
+      "title": "各家新聞 News"
+    },
+    "sec4": {
+      "positive": "看多文章列表",
+      "negative": "看空文章列表"
+    }
+  }
+}

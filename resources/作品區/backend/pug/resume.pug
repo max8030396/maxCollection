@@ -1,0 +1,357 @@
+include ./module/base
+include ./module/svg
+include ./module/components
+- let dataIndex = [0,1,2,3,4,5,6,7,8,9,10];
+- let resumeMoreDetailBtnData = [{name:'newLife',nameZh: '心靈正能量'},{name:'detect',nameZh: '確診與發現'},{name:'cure',nameZh: '抗癌治療心得'},{name:'diagnose',nameZh: '看診經驗'},{name:'bless',nameZh: '暖心祝福牆'}];
+- let cancerTypes = ['皮膚癌','睪丸癌','食道癌','卵巢癌','頭頸癌','血癌','鼻咽癌','肺癌','乳癌','胰臟癌','胃癌','肝癌','大腸癌','直腸癌','子宮癌','子宮頸癌','攝護腺癌','膀胱癌','淋巴癌','原發不明頭頸癌'];
+- let levels = ['一','二','三','四'];
+- let YesAndNo = [{num:' ',textZh:'請選擇',textEn:''},{num:'0',textZh:'有',textEn:'yes'},{num:'1',textZh:'沒有',textEn:'no'}];
+- let cureLists = ['曾做開刀手術?','開刀後有放射治療，化療?','沒開刀但有放射治療，化療?','放療,化療方式','放療,化療副作用與日常生活','曾有熱治療療程?','接受過全身藥物療程?','全身藥物療程的方式','曾做過癌症基因檢測?'];
+- let diagnoseLists = ['掛號醫院或診所','看診科別與醫生','後續的檢查','檢查細節與注意事項']
+- let newLifeLists = ['心路歷程與內心的話','願望、集氣祝福','飲食生活與復健心得']
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css") 
+  body
+    .wrapper
+      .indexContainer
+        +sideBar('resume')
+        .resume
+          .resumeTopper
+            button.btn.addResume(type="button" data-bs-toggle="modal" data-bs-target="#addResume" data-bs-whatever="doc") +故事卡
+            .resumeSearchBar.font-md
+              +components('searchBar',2)
+          //-下方顯示區
+          .resumeBanner
+            each i in dataIndex
+              if i === 0 
+                .resumeInfo
+                  .infoSetting.rwdResumeId
+                    span.font-md ID
+                  .infoSetting
+                    span.font-md 會員
+                  .infoSetting
+                    span.font-md 病症
+                  .infoSetting
+                    span.font-md 主治醫師
+                  .infoSetting.rwdResumeUpdate
+                    span.font-md 更新日期
+                  .infoSetting
+                    span.font-md 預覽
+              else
+                div(
+                  class=`resumeInfo resume-${i}`
+                )
+                  .infoSetting.rwdResumeId
+                    span.font-md.span-1
+                  .infoSetting
+                    span.font-md.span-2
+                  .infoSetting
+                    span.font-md.span-3
+                  .infoSetting
+                    span.font-md.span-4
+                  .infoSetting.rwdResumeUpdate
+                    span.font-md.span-5
+                  .infoSetting
+                    .infoBtn(type="button" data-bs-toggle="modal" data-bs-target="#moreBtn" data-bs-whatever="moreBtn" resume-index="1")
+                      +svgIcon('moreBtn')
+            .resumeInfo.wrongSearch
+          //-分頁標籤
+          .row.paginationJs
+              nav.Page.navigation
+                ul.pagination
+                  +components('pagination')
+          .modal.fade#addResume(tabindex="-1" aria-labelledby="addResumeLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false")
+            .modal-dialog
+              .modal-content
+                //-上方標題及關閉按鈕
+                .modal-header
+                  h5.modal-title 新增故事卡
+                  button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
+                
+                //-中央文字區塊
+                form.modal-body
+                  ul.moreDetailUl
+                    //-會員ID
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg 會員ID
+                      .moreDetailSpace.addId
+                        //- label.form-label(for="#addId")
+                        input.font-md.form-control(placeholder="會員ID" required)
+
+                    //-確診年紀
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg 確診年紀
+                      .moreDetailSpace.addAge
+                        input.font-md.form-control(placeholder="數字Ex:18" required)
+
+                    //-性別
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg 性別
+                      .moreDetailSpace.addGender
+                        select.font-md.form-select(required)
+                          option(value="") 性別
+                          option(value="0") 男性
+                          option(value="1") 女性
+
+                    //-第幾期
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg 第幾期
+                      .moreDetailSpace.addLevel
+                        select.font-md.form-select(required)
+                          option(value="") 期數
+                          each level in levels
+                            option(value=`${level}`)!= `${level}`
+
+                    //-病症類型
+                    li.moreDetailLi.addResumeLi
+                      .moreDetailTag
+                        h5.font-lg 病症類型
+                      .moreDetailSpace.addCancerType
+                        select.font-md.form-select(required)
+                          option(value="") 選擇類型
+                          each cancerType,index in cancerTypes
+                            option(
+                              class=`cancertype-${index + 1} input-group-text`
+                              value=`${cancerType}`
+                            )!= `${cancerType}`
+                    
+                    //-主治醫師
+                    li.moreDetailLi.addResumeLi
+                      .moreDetailTag
+                        h5.font-lg 主治醫師
+                      .moreDetailSpace.addDoctor
+                        input.font-md.form-control(placeholder="目前主治醫師全名" required)
+
+                    //-填寫者身份
+                    li.moreDetailLi.addResumeLi
+                      .moreDetailTag
+                        h5.font-lg 填寫者身份
+                      .moreDetailSpace.addIdentity
+                        select.font-md.form-select(required)
+                          option(value="") 請選擇
+                          option(value="0") 我是本人
+                          option(value="1") 患者親友
+                        
+                    //-家族是否有病史
+                    li.moreDetailLi.addResumeLi
+                      .moreDetailTag
+                        h5.font-lg 家族是否有病史
+                      .moreDetailSpace.addFamily
+                        select.font-md.form-select(required)
+                          each item in YesAndNo
+                            option(value=`${item.textEn}` class='input-group-text') #{item.textZh}
+                  .modal-footer
+                    button.btn(data-bs-dismiss="modal") 關閉
+                    button.btn.addBtn(type="button") 新增故事卡
+
+          .modal.fade#moreBtn(moreBtn="-1" aria-labelledby="moreBtnLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false")
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  h5.modal-title 故事卡預覽區
+                    .btn.editBtn
+                      +svgIcon('editBtn')
+                  button.btn.delete-modalBtn(type="button" data-bs-toggle="modal" data-bs-target="#deleteResumeModal" data-bs-whatever="deleteResumeModal") 刪除故事卡
+                  +components('delete-modal',2)
+                .modal-body
+                  ul.moreDetailUl
+                    //-ID、姓氏
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg ＩＤ
+                      .moreDetailSpace
+                        span.font-md.authIdValue.moreDetail-1
+                      .moreDetailTag
+                        h5.font-lg 姓氏
+                      .moreDetailSpace
+                        span.font-md.moreDetail-10
+                    //-年齡、性別
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg 年齡
+                      .moreDetailSpace
+                        span.font-md.jsEditBefore.moreDetail-5
+                        input.font-md.ageValue.form-control.jsEditAfter(type="text" placeholder="")
+
+                      .moreDetailTag
+                        h5.font-lg 性別
+                      .moreDetailSpace
+                        span.font-md.jsEditBefore.moreDetail-6
+                        select.font-md.genderValue.form-select.jsEditAfter(required = true)
+                          option.input-group-text 請選擇性別
+                          option.genderFemale.input-group-text(value="0") 男性
+                          option.genderMale.input-group-text(value="1") 女性
+                    //-癌症類別、期數
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg 類別
+                      .moreDetailSpace
+                        span.font-md.jsEditBefore.moreDetail-2
+                        select.font-md.cancerTypeValue.form-select.jsEditAfter(required = true)
+                          option.input-group-text 請選擇類別
+                          each cancerType,index in cancerTypes
+                            option(
+                              class=`cancertype-${index + 1} input-group-text`
+                              value=`${cancerType}`
+                            )!= `${cancerType}`
+
+                      .moreDetailTag
+                        h5.font-lg 期數
+                      .moreDetailSpace
+                        span.font-md.jsEditBefore.moreDetail-3
+                        select.font-md.levelValue.form-select.jsEditAfter(required = true)
+                          option.input-group-text 癌症期數
+                           each level in levels
+                            option(value=`${level}`)!= `${level}`
+                    //-填寫者、家族史
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg 填寫者
+                      .moreDetailSpace
+                        span.font-md.jsEditBefore.moreDetail-7
+                        select.font-md.identityValue.form-select.jsEditAfter(required = true)
+                          option.input-group-text 填寫者
+                          option.identity-0.input-group-text(value="0") 本人填寫
+                          option.identity-1.input-group-text(value="1") 親友填寫
+                      
+                      .moreDetailTag
+                        h5.font-lg 家族史
+                      .moreDetailSpace
+                        span.font-md.jsEditBefore.moreDetail-4
+                        select.font-md.familyValue.form-select.jsEditAfter(required = true)
+                          option.input-group-text 有無家族史
+                          option.familyYes.input-group-text(value="0") 有
+                          option.familyNo.input-group-text(value="1") 無
+                    //-主治醫師、最後更新日期
+                    li.moreDetailLi.lastOneLi
+                      
+                      .moreDetailRwdLi
+                        .moreDetailTag
+                          h5.font-lg 主治醫師
+                        .moreDetailSpace
+                          span.font-md.jsEditBefore.moreDetail-8
+                          input.font-md.myDoctorValue.form-control.jsEditAfter(type="text" placeholder="")
+                      .moreDetailRwdLi
+                        .moreDetailTag
+                          h5.font-lg 更新日期
+                        .moreDetailSpace
+                          span.font-md.moreDetail-9
+                    //-agree、like、bookmark(不需要變更X)
+                    .moreDetailGroup
+                      //-Agree
+                      .moreDetailBox
+                        +svgIcon('agree')
+                        span.font-md.moreDetail-13
+                      //-Like
+                      .moreDetailBox
+                        +svgIcon('like')
+                        span.font-md.moreDetail-14
+                      //-addBookMark
+                      .moreDetailBox
+                        +svgIcon('bookmark')
+                        span.font-md.moreDetail-12
+                      .moreDetailBox
+                        +svgIcon('heart')
+                        span.font-md.moreDetail-15
+                    //-更多故事卡按鈕切換區
+                    .moreDetailBtnArea
+                      each value, index in resumeMoreDetailBtnData
+                        div(
+                            data-type=`${value.name}`
+                            class=` btn btn-${index + 1} ${index === 0 ? 'btnJs-select' : 'rwdShowBtn_mobileHide'} `
+                          )
+                            +svgIcon(`${value.name}`)
+                            span.font-md!= `${value.nameZh}`
+                      .rwdShowBtn_mobile
+                        +svgIcon('rwdArrow')
+                    //-心靈正能量newLife
+                    .moreDetailResume.newLife.showResume
+                      each newLifeList,index in newLifeLists
+                        div(class=`moreDetailTag resumeNewLife-${index + 1}`)
+                          h5.font-lg.font-lg!=  `${newLifeList}`
+                        div(class=`moreDetailSpace resumeNewLife-${index + 1} newLifeText-${index + 1}`)
+                          span.font-md.jsEditBefore
+                          textarea.font-md.form-control.jsEditAfter(type="text")
+                    //-確診與發現detect
+                    .moreDetailResume.detect
+                      .moreDetailTag
+                        h5.font-lg 發現的年月份
+                      .moreDetailSpace.detectTextDate
+                        span.font-md.jsEditBefore 
+                        input.font-md.detectDateYear.form-control.jsEditAfter(type="text" placeholder="西元")
+                        input.font-md.detectDateMonth.form-control.jsEditAfter(type="text" placeholder="月份")
+
+                      .moreDetailTag.resumeDetect-1
+                        h5.font-lg 發現的部位
+                      .moreDetailSpace.resumeDetect-1.detectText-1
+                        span.font-md.jsEditBefore 
+                        input.font-md.form-control.jsEditAfter(type="text")
+                        
+                      .moreDetailTag.resumeDetect-2
+                        h5.font-lg 初期症狀
+                      .moreDetailSpace.resumeDetect-2.detectText-2
+                        span.font-md.jsEditBefore
+                        textarea.font-md.form-control.jsEditAfter(type="text") 
+                    //-抗癌治療心得cure
+                    .moreDetailResume.cure
+                      each cureList,index in cureLists
+                        div(class=`moreDetailTag resumeCure-${index + 1}`)
+                          h5.font-lg #{cureList}
+                        div(class=`moreDetailSpace resumeCure-${index + 1} cureText-${index + 1}`)
+                          span.font-md.jsEditBefore
+                          select.font-md.form-select.jsEditAfter(required)
+                            each item in YesAndNo
+                              option(value=`${item.textEn}` class='input-group-text') #{item.textZh}
+
+                      .moreDetailTag
+                        h5.font-lg 曾使用的治療藥物
+                      .moreDetailSpace.resumeDrug.font-md
+                        
+                      button.addDrugBtn.jsEditAfter.font-md
+                        span ＋
+                          
+                      .moreDetailTag.resumeCure-10
+                        h5.font-lg 其他輔助方法
+                      .moreDetailSpace.resumeCure-10.cureText-10
+                        span.font-md.jsEditBefore 
+                        textarea.font-md.form-control.jsEditAfter(type="text")
+
+                      .moreDetailTag.resumeCure-11
+                        h5.font-lg 每月大約治療費用(新台幣)
+                      .moreDetailSpace.resumeCure-11.cureText-11
+                        span.font-md.jsEditBefore 
+                        input.font-md.form-control.jsEditAfter(type="text") 
+                    //-看診經驗diagnose
+                    .moreDetailResume.diagnose
+                      each diagnoseList,index in diagnoseLists
+                        div(class=`moreDetailTag resumeDiagnose-${index + 1}`)
+                          h5.font-lg!= `${diagnoseList}`
+                        div(class=`moreDetailSpace resumeDiagnose-${index + 1} diagnoseText-${index + 1}`)
+                          span.font-md.jsEditBefore
+                          if index < 2
+                            input.font-md.form-control.jsEditAfter(type="text")
+                          else 
+                            textarea.font-md.form-control.jsEditAfter(type="text")
+                    //-暖心祝福牆bless
+                    .moreDetailResume.bless
+                      ul
+                //-底部
+                .modal-footer
+                  button.btn.resumeCloseBtn.jsEditBefore(data-bs-dismiss="modal") 關閉
+                  button.btn.editBtn-cancel.jsEditAfter(data-bs-dismiss="modal") 取消
+                  button.btn.editBtn-sendOut.jsEditAfter(data-bs-dismiss="modal") 送出
+          //-點擊刪除藥物顯示區塊
+          +components('delete-modal',3)
+          
+          +components('alertLogoutPopup')
+          //- 776

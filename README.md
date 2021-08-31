@@ -40,7 +40,7 @@
 ```
 ----
 ## 作品集 
-![qrcode](./images/qrcode.png)
+![qrcode](./resources/images/readme/qrcode.png)
 
 * [後台專案](#後台專案)
 * [網頁專案](#網頁專案)
@@ -62,90 +62,95 @@
 5. [會員卡](#會員卡)
 6. [專欄](#專欄)
 7. [編輯專欄](#編輯專欄)
-8. [新增專欄：](#新增專欄)
-9. [問答：](#問答)
-10. [自動功能：](#自動功能)
+8.  [自動功能：](#自動功能)
+9.  [超時登入提醒](#超時登入提醒)
 
 ######[⬆回到專案目錄](#作品集)
 
 ---
 ####  #登入頁面
 透過串接api後端回傳資料，判斷登入許可
-![前端畫面](./images/dashboard/login.png)
+
+![前端畫面](./resources/images/readme/dashboard/login.png)
+
+
 
 ######[⬆回到專案](#後台專案)
 
 ---
 ####  #首頁
-![前端畫面](./images/dashboard/index.png)
+![前端畫面](./resources/images/readme/dashboard/index.png)
 
 ######[⬆回到專案](#後台專案)
 
 ---
 ####  #會員資訊
 結合api達成顯示、搜尋、編輯及刪除等功能
-![前端畫面](./images/dashboard/user.png)
+![前端畫面](./resources/images/readme/dashboard/user.png)
+
+![前端畫面](./resources/images/readme/dashboard/user-1.png)
 
 ######[⬆回到專案](#後台專案)
 
 ---
 ####  #網路文章
 結合api串接達成顯示、搜尋
-![前端畫面](./images/dashboard/article.png)
+![前端畫面](./resources/images/readme/dashboard/article.png)
+
+![前端畫面](./resources/images/readme/dashboard/article-1.png)
 
 ######[⬆回到專案](#後台專案)
 
 ---
 ####  #會員卡
 結合api串接達成顯示、搜尋、編輯、新增及刪除等功能
-![前端畫面](./images/dashboard/resume.png)
+![前端畫面](./resources/images/readme/dashboard/resume.png)
+
+![前端畫面](./resources/images/readme/dashboard/resume-1.png)
 
 ######[⬆回到專案](#後台專案)
 
 ---
 ####  #專欄
 結合api串接達成顯示、搜尋、編輯、新增及刪除等功能
-![前端畫面](./images/dashboard/scoop.png)
+![前端畫面](./resources/images/readme/dashboard/scoop.png)
+
+![前端畫面](./resources/images/readme/dashboard/scoop-1.png)
+
 
 ######[⬆回到專案](#後台專案)
 
 ---
 ####  #編輯專欄
 
-![前端畫面](./images/dashboard/scoopEdit.png)
+![前端畫面](./resources/images/readme/dashboard/scoopEdit.png)
 
 ######[⬆回到專案](#後台專案)
 
 ---
-####  #新增專欄
-![前端畫面](./images/dashboard/scoopPost.png)
 
-######[⬆回到專案](#後台專案)
-
----
-####  #問答
-![前端畫面](./images/dashboard/qa.png)
-
-######[⬆回到專案](#後台專案)
-
----
-######[⬆回到專案](#後台專案)
 ####  #自動功能
 結合api串接達成顯示及搜尋等功能
-![前端畫面](./images/dashboard/autofunction.png)
+![前端畫面](./resources/images/readme/dashboard/autofunction.png)
 
 ######[⬆回到專案](#後台專案)
-######[⬆回到專案目錄](#作品集)
 
 ---
+####  #超時登入提醒
+![前端畫面](./resources/images/readme/dashboard/login_alert.png)
+
+######[⬆回到專案](#後台專案)
+
+---
+
 
 #####  #網頁專案
     自行設計編排整體呈現及rwd，與後端溝通api資料結構
     搭配jquery及chart.js，透過ajax串接api
     配合webpack自動化打包流程完成此專案
-![前端畫面](./images/wedDesign/wedDesign-desktop.png)
-![前端畫面](./images/wedDesign/wedDesign-tablet.jpg)
-![前端畫面](./images/wedDesign/wedDesign-mobile.jpg)
+![前端畫面](./resources/images/readme/wedDesign/wedDesign-desktop.png)
+![前端畫面](./resources/images/readme/wedDesign/wedDesign-tablet.jpg)
+![前端畫面](./resources/images/readme/wedDesign/wedDesign-mobile.jpg)
 
 ######[⬆回到專案](#網頁專案)
 ######[⬆回到專案目錄](#作品集)
@@ -155,7 +160,7 @@
 #####  #自製圖片輪播套件
     使用javascript手刻一個自動圖片輪播套件
     客製化設定輪播速度及內含圖片量，顯示上也有設計rwd
-![前端畫面](./images/superSlider/superSlider.png)
+![前端畫面](./resources/images/readme/superSlider/superSlider.png)
 
 ######[⬆回到專案目錄](#作品集)
 
@@ -165,7 +170,7 @@
 > 鍵盤操控人物左右移動，分別低、中、高遊戲難度，在一分鐘內閃躲石塊取得分數
 > 透過jQuery設計碰撞判斷及石磚隨機掉落，顯示上也有設計rwd
 
-![前端畫面](./images/game/game.jpg)
+![前端畫面](./resources/images/readme/game/game.jpg)
 ######[⬆回到專案](#左右閃躲小遊戲)
 ######[⬆回到專案目錄](#作品集)
 
@@ -173,7 +178,7 @@
 
 ##### 計算機
     簡單利用javascript設計計算機
-![前端畫面](./images/calculator/calculator.png)
+![前端畫面](./resources/images/readme/calculator/calculator.png)
 ######[⬆回到專案目錄](#作品集)
 
 ----

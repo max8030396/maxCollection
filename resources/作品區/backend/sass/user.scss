@@ -1,0 +1,260 @@
+// @import "~bootstrap/scss/bootstrap";
+@import "./module/sideBar.scss";
+@import "./module/base.scss";
+
+//-----------自定義標籤-----------//
+#moreBtn {
+  .modal-body {
+    //醫師資訊
+    .accordion {
+      font-size: 0;
+    
+      h5 {
+        margin: 0;
+      }
+    
+      .accordion-item {
+        background-color: var(--theme-modal-bg);
+        .accordion-header {
+          .accordionBtn {
+            width: 100%;
+            padding: 15px 0;
+            margin-bottom: 6px;
+            justify-content: space-around;
+            border: 3px solid var(--theme-border);
+            background-color: var(--theme-btn-dark-bg);
+            color: var(--theme-modal-tag);
+    
+            h5 {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+    
+              svg {
+                margin-left: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //“最愛標籤”專用類別
+    .moreDetailBadge {
+      max-height: 50px;
+      overflow-y: auto;
+      display: inline-block;
+
+      span {
+        margin: 0px 5px 1px;
+      }
+    }
+    //功能性按鈕區
+    .moreDetailTool {
+      display: flex;
+      justify-content: space-around;
+      padding: 30px;
+
+      //發送EDM按鈕
+      .moreDetailEdmBtn {
+        width: 40%;
+        background-color: var(--theme-btn-green);
+
+        &:hover {
+          background-color: var(--theme-btn-green-hover);
+        }
+      }
+
+      //查看故事卡按鈕
+      .moreDetailStoryBtn {
+        width: 40%;
+        background-color: var(--theme-btn-red);
+
+        &:hover {
+          background-color: var(--theme-btn-red-hover);
+        }
+      }
+    }
+
+    .sendPasswordBtn {
+      background-color: var(--theme-btn-dark-bg);
+      
+      &:hover {
+        background-color: var(--theme-btn-dark-bg);
+      }
+    }
+  
+    .moreDetailBtn {
+      background-color: var(--theme-btn-dark-bg);
+      
+      &:hover {
+        background-color: var(--theme-btn-dark-bg);
+      }
+    }
+  }
+}
+
+//顯示區寬度及背景色
+.user {
+  width: 86%;
+  
+  //上方功能區
+  .userTopper {
+    align-items: center;
+    justify-content: flex-end;
+    margin: 15px 10px 15px 10px;
+    
+    
+    //會員搜尋區
+    .userSearchBar {
+      display: flex;
+      align-items: stretch;
+
+      //搜尋按鈕
+      .userBtn {
+        border-radius: 5px 0 0 5px;
+      }
+
+      //搜尋區
+      .userSearch {
+        width: 150px;
+      
+        &:focus {
+          width: 200px;
+        }
+      }
+    }
+  }
+
+  .userBanner {
+    margin: 0 10px 0 10px;
+    overflow: auto;
+    height: calc(100vh - 141px);
+    font-size: 0;
+    
+    .wrongSearch {
+      display: none;
+    }
+
+    .userInfo {
+      background-color: var(--theme-info-bg);
+      margin-bottom: 5px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .infoSetting {
+      width: 20%;
+      vertical-align: middle;
+      margin: 15px 0;
+      color: var(--theme-info-text);
+      display: inline-block;
+      // overflow: auto;
+      padding: 0 5px;
+
+      span {
+        white-space: nowrap;
+      }
+
+      svg {
+        transition: fill 300ms ease;
+      }
+
+      &:hover {
+        svg {
+          fill: #bdbdbd;
+        }
+      }
+    }
+
+    .userEmail {
+      width: 40%;
+
+      span {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .doctorType {
+      background-color: var(--theme-normal);
+    }
+
+    .normalType {
+      background-color: var(--theme-doctor);
+    }
+
+  }
+
+  // 階層問題故在此新增
+  .paginationJs {
+    // js動態
+    .js-hide{
+      display: none;
+    }
+  }
+}
+
+@media (max-width:1024px) {
+  .user{
+    .userTopper .userSearchBar {
+      height: 30px;
+  
+      .userBtn {
+        padding: 8px;
+        svg {
+          width: 15px;
+          margin-bottom: 10px;
+        }
+      }
+  
+      .userSearch {
+        width: 150px;
+  
+        &:focus {
+          width: 150px;
+        }
+      }
+    }
+
+    .userBanner {
+      .wrongSearch {
+        font-size: 24px;
+        padding-top: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width:731px) {
+  .user {
+    width: 100%;
+    .userBanner {
+      overflow: unset;
+      height: unset;
+    }
+  }
+}
+// //新增會員按鈕顏色-醫師
+// .addDoc {
+//   background-color: rgba(0,159,165,1);
+//   color: #f1f3f5;
+//   margin-right: 15px;
+
+//   &:hover {
+//     background-color: rgba(0,159,165,0.9);
+//   }
+// }
+
+// //新增會員按鈕顏色-一般
+// .addNormal {
+//   background-color: rgba(239,99,87,1);
+//   color: #f1f3f5;
+
+//   &:hover {
+//     background-color: rgba(239,99,87,0.9);
+//   }
+// }
+// 677

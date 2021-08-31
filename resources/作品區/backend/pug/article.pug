@@ -1,0 +1,173 @@
+include ./module/base
+include ./module/components
+include ./module/svg
+-let dataIndex = [0,1,2,3,4,5,6,7,8,9,10]
+-let detailIcons = ['agree','like','bookmark']
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+  body
+    .wrapper
+      .indexContainer
+        +sideBar('article')
+        .article
+          .articleTopper
+            //-文章搜尋區
+            .articleSearchBar.font-md
+              +components('searchBar',1)
+          .articleBanner
+            each i in dataIndex
+              if i === 0
+                .articleInfo
+                  .infoSetting
+                    span.font-md ID
+                  .articleTitle.infoSetting
+                    span.font-md 標題
+                  .infoSetting
+                    span.font-md 類別
+                  .infoSetting
+                    span.font-md 網域
+                  .infoSetting
+                    span.font-md 預覽
+              else
+                div(class=`articleInfo article-${i}`)
+                  .infoSetting
+                    span.font-md.span-1
+                  .articleTitle.infoSetting
+                    span.font-md.span-2
+                  .infoSetting
+                    span.rwdArticleType.font-md.span-3
+                  .infoSetting
+                    span.font-md.span-4
+                  .infoSetting
+                    .infoBtn(type="button" data-bs-toggle="modal" data-bs-target="#moreBtn" data-bs-whatever="moreBtn" article-index="1")
+                      +svgIcon('moreBtn')
+            .articleInfo.wrongSearch
+          
+          //-分頁標籤
+          .row.paginationJs
+            nav.Page.navigation
+              ul.pagination
+                +components('pagination')
+          
+          //-點擊預覽顯示區
+          .modal.fade#moreBtn(moreBtn="-1" aria-labelledby="moreBtnLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false")
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  h5.modal-title 文章預覽區
+                  //-編輯文章(暫時不使用)
+                    .btn.editBtn
+                      +svgIcon('editBtn')
+                  //-刪除文章(暫時不使用)
+                  //- button.btn.delete-modalBtn(type="button" data-bs-toggle="modal" data-bs-target="#deleteArticleModal" data-bs-whatever="deleteArticleModal") 刪除文章（Ｘ）
+                  //- +components('delete-modal',1)
+                .modal-body
+                  ul.moreDetailUl
+                    //-ID
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg ＩＤ
+                      .moreDetailSpace
+                        span.font-md.moreDetail-1
+                    //-日期
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg 日期
+                      .moreDetailSpace
+                        span.font-md.moreDetail-3
+                    //-標題
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg 標題
+                      .moreDetailSpace
+                        a.moreDetail-11.jsEditBefore(href="" target="_blank")
+                          span.font-md.moreDetail-2.jsEditBefore
+                        input.font-md.titleInput.form-control.jsEditAfter(type="text" placeholder="")
+                    //-標籤
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg 標籤
+                      .moreDetailSpace
+                        span.font-md.moreDetail-4.jsEditBefore
+                        input.font-md.tagInput.form-control.jsEditAfter(type="text" placeholder="")
+                    //-網域
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg 網域
+                      .moreDetailSpace
+                        a.moreDetail-10(href="" target="_blank")
+                          span.font-md.moreDetail-5
+                    //-網頁縮圖
+                    li.moreDetailLi
+                      .moreDetailTag
+                        h5.font-lg 縮圖
+                      .moreDetailSpace
+                        figure.moreDetail-6
+                    //-agree、like、bookmark   
+                    .moreDetailGroup
+                      each detailIcon,index in detailIcons
+                        .moreDetailBox
+                          +svgIcon(`${detailIcon}`)
+                          span(class=`moreDetail-${index + 7} font-md`)
+                .modal-footer
+                  button.btn.articleCloseBtn.jsEditBefore(data-bs-dismiss="modal") 關閉
+                  button.btn.editBtn-cancel.jsEditAfter(data-bs-dismiss="modal") 取消
+                  button.btn.editBtn-sendOut.jsEditAfter(data-bs-dismiss="modal") 送出
+                //- 357
+          
+          +components('alertLogoutPopup')
+          //- //新增文章按鈕
+          //- button.btn.addArticle(type="button" data-bs-toggle="modal" data-bs-target="#addArticles" data-bs-whatever="doc") +網路文章（Ｘ）
+          //- //點擊後新增文章顯示區
+          //- .modal.fade#addArticles(tabindex="-1" aria-labelledby="addArticlesLabel" aria-hidden="true")
+          //-   .modal-dialog
+          //-     .modal-content
+          //-       //上方標題及關閉按鈕
+          //-       .modal-header
+          //-         h5.modal-title.showDoc 新增網路文章
+          //-         button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
+                
+          //-       //中央文字區塊
+          //-       .modal-body
+          //-         ul.moreDetailUl
+          //-           //ID
+          //-           li.moreDetailLi
+          //-             .moreDetailTag
+          //-               h5.font-lg ＩＤ
+          //-             .moreDetailSpace
+          //-               span.font-md 1000231
+          //-           //標題
+          //-           li.moreDetailLi
+          //-             .moreDetailTag
+          //-               h5.font-lg 標題
+          //-             .moreDetailSpace
+          //-               span.font-md COVIDE-19不可怕
+          //-               span.font-md 2021/12/25
+          //-           //標籤
+          //-           li.moreDetailLi
+          //-             .moreDetailTag
+          //-               h5.font-lg 標籤
+          //-             .moreDetailSpace
+          //-               span.font-md.jsEditBefore 乳癌
+          //-               //- input.form-control.jsEditAfter(type="text" placeholder="輸入原有資料")
+          //-               //$有需要用選單嗎？
+          //-               //- select.form-select#likeBadge(required)
+          //-                 //- option.input-group-text(value="") 項目
+          //-                 //- option.input-group-text(value="") 睪丸癌
+          //-                 //- .invalid-feedback 請至少選擇一個標籤
+          //-           //網域
+          //-           li.moreDetailLi
+          //-             .moreDetailTag
+          //-               h5.font-lg 網域
+          //-             .moreDetailSpace
+          //-               span.font-md.jsEditBefore 網域名稱
+          //-               figure 網域縮圖
+          //-       //- //底部
+          //-       .modal-footer
+          //-         button.btn(data-bs-dismiss="modal") 關閉
+          //-         button.btn.addBtn 新增文章

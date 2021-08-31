@@ -1,0 +1,192 @@
+@import "./module/sideBar.scss";
+@import "./module/base.scss";
+
+//-----------自定義標籤-----------//
+.autofunction {
+  width: 86%;
+  max-height: 100vh;
+  overflow-y: auto;
+
+  .autofunctionTopper {
+    margin: 30px 10px 0px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+
+    .btn {
+      width: 30%;
+      height: 60px;
+      background-color: var(--theme-btn-green);
+      &:hover {
+        background-color: var(--theme-btn-green-hover);
+      }
+
+      &.btn-3 {
+        background-color: var(--theme-btn-red);
+  
+        &:hover {
+          background-color: var(--theme-btn-red-hover);
+        }
+      }
+    }
+  }
+
+  .autofunctionBanner{
+    font-size: 0;
+    width: 95%;
+    margin: 30px auto 0;
+    color: #b6babf;
+
+    .updateConfirm .userArea .userInfo.wrongSearch{
+      display: inline-block;
+    }
+
+    .title  {
+      display: flex;
+      font-weight: bolder;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px 5px 10px;
+      border-bottom: 2px solid #424242;
+
+      .buttonArea {
+        display: flex;
+        align-items: center;
+  
+        button {
+          margin-left: 20px;
+          background-color: var(--theme-btn-red);
+    
+          &:hover {
+            background-color: var(--theme-btn-red-hover);
+          }
+        }
+      }
+
+      .searchBar {
+        display: flex;
+        align-items: center;
+  
+        input {
+          width: 195px;
+          
+          &:focus {
+            width: 230px;
+          }
+        }
+  
+        // .searchBtn svg{
+        //   margin: 0;
+        // }
+      }
+    }
+
+    .userArea {
+      padding: 0;
+      overflow-y: auto;
+
+      .userInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        margin-top: 5px;
+        text-align: center;
+        border-radius: 5px;
+        background-color: var(--theme-info-bg);
+
+        .span-2 {
+          border: none;
+          background-color: #424242;
+          color:#ababab;
+        }
+
+        .btn {
+          background-color: var(--theme-btn-dark-bg);
+        }
+
+        div {
+          display: flex;
+          align-items: center;
+  
+          svg {
+            margin-left: 5px;
+          }
+        }
+
+        &.js-hide {
+        display: none;
+        }
+
+        &.wrongSearch {
+          display: none;
+        }
+      }
+
+      // 階層問題故在此新增
+      .paginationJs {
+        // js動態
+        .js-hide{
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:1024px) {
+  .autofunction .autofunctionBanner .title .searchBar {
+    .searchBtn {
+      padding: 8px;
+      height: 30px;
+
+      svg {
+        width: 15px;
+        margin-bottom: 10px;
+      }
+    }
+
+    input {
+      height: 30px;
+    }
+  }
+  
+  .userArea .wrongSearch {
+    font-size: 24px;
+    padding-top: 10px;
+  }
+}
+
+@media (max-width:731px) {
+  .autofunction {
+    width: 100%;
+    height: auto;
+    overflow: unset;
+
+    .autofunctionTopper {
+      padding: 0;
+    }
+    .autofunctionBanner .title .buttonArea {
+      flex-direction: column;
+      align-items: flex-start;
+
+      button {
+        padding: 3px 7px;
+        margin: 0;
+      }
+      // .btn {
+        
+      // }
+    }
+    
+    .autofunctionBanner .title .searchBar{
+      input {
+        width: 123px;
+
+        &:focus {
+          width: 123px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+include ./module/base
+//- - var words = self.htmlWebpackPlugin.options.data;
+- let topText = [{textZh:'總會員數',textEn:'user'},{textZh:'一般會員',textEn:'normal'},{textZh:'醫師會員',textEn:'doctor'},{textZh:'網路文章',textEn:'article'},{textZh:'故事卡',textEn:'resume'},{textZh:'開發中...',textEn:'qa'},{textZh:'醫師專欄',textEn:'scoop'}]
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title overview
+  body
+    .wrapper
+      .indexContainer
+        //-sideBar
+        +sideBar('overview')
+        .overview
+          .topper
+            .topperLeft
+              each item,index in topText
+                if index < 3
+                  div(class=`${item.textEn}`)
+                    span.font-xl 
+                    h5.font-lg!= `${item.textZh}`
+              
+            .topperRight
+              each item,index in topText
+                if index < 3
+                else
+                  div(class=`${item.textEn}`)
+                    span.font-x
+                    h5.font-lg!= `${item.textZh}`
+          .banner
+            .bannerLeft
+              .title
+                .textArea
+                  +svgIcon('member')
+                  h5.font-lg 最新加入
+                .buttonArea
+                  button.jsBtn.normalBtn.btn(data-type="normal") 
+                    span.font-md 一般
+                  button.jsBtn.doctorBtn.btn(data-type="doctor")
+                    span.font-md 醫師
+              ul.newUser
+            .bannerRight
+              .title
+                .textArea
+                  +svgIcon('news')
+                  h5.font-lg 最新消息
+                .buttonArea
+                  button.jsBtn.articleBtn.btn(data-type="article")
+                    span.font-md 網路文章
+                  button.jsBtn.resumeBtn.btn(data-type="resume")
+                    span.font-md 故事卡
+                  button.jsBtn.qaBtn.btn(data-type="qa")
+                    span.font-md ＱＡ
+                  button.jsBtn.scoopBtn.btn(data-type="scoop")
+                    span.font-md 醫師專欄 
+              ul.newFourFlow
+              //- 72
+          +components('alertLogoutPopup')
+//- 72

@@ -1,0 +1,74 @@
+include ./module/base
+include ./module/svg
+include ./module/components
+
+- let = sendEdmList = [1,2,3,4,5]
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css")
+  body
+    //- (X) =沒有這個api
+    .wrapper
+      .indexContainer
+        +sideBar('autofunction')
+        .autofunction
+          .autofunctionTopper
+            button.btn.btn-1(type="button") 更新Time Gap
+            button.btn.btn-2(type="button") 更新Tag List(X)
+            button.btn.btn-3(type="button") 備份DB(X)
+
+          .autofunctionBanner
+            .updateConfirm
+              .title
+                .text.buttonArea
+                  span.font-lg 更新讀取改版內容 
+                  button.allReadBtn.btn(type="button") 全體重置
+                .searchBar
+                  button.btn.searchBtn.readSearchBtn(type="submit")
+                    +svgIcon('search')
+                  input.font-md.readInput(placeholder="輸入信箱")
+              ul.userArea
+                li.js-hide.userInfo
+                  div
+                    span.span-1.font-lg 
+                    +svgIcon('error')
+                  span.span-2.font-md
+                  button.readBtn.btn(type="button" userAuthId="3") 更新(沒有用戶authId)
+                  button.cancelReadBtn.btn(type="button") 取消更新(暫時沒有)
+                .wrongSearch.userInfo
+                  span 請輸入欲查詢的電子郵件
+                
+              //- .buttonArea
+              //-   button.allReadBtn.btn(type="button") 全體重置
+            .sendEdm
+              .title
+                .text.buttonArea
+                  span.font-lg 發送電子報
+                  button.allEdmBtn.btn(type="button") 全體發送(X)
+                .searchBar
+                  button.btn.searchBtn.edmSearchBtn(type="submit")
+                    +svgIcon('search')
+                  input.font-md.edmInput(placeholder="輸入名字、信箱")
+              ul.userArea
+                each i in sendEdmList
+                  li(class=`user-${i} userInfo`)
+                      span.span-1.font-lg
+                      div
+                        button.copyBtn.span-2.font-md
+                        +svgIcon('copy')
+                      button.singleEdmBtn.btn(type="button") 發送
+                .wrongSearch.userInfo
+
+                .row.paginationJs
+                  nav.Page.navigation
+                    ul.pagination
+                      +components('pagination')
+              //- .buttonArea
+              //-   button.allEdmBtn.btn(type="button") 全體發送(X)
+        
+        +components('alertLogoutPopup')
+          //- 

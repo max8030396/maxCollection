@@ -1,0 +1,427 @@
+@import "./module/sideBar.scss";
+@import "./module/base.scss";
+
+//-----------特殊調整-----------//
+.form-control {
+  margin-left: 0;
+  padding: 5px 10px;
+}
+
+.form-select {
+  margin-left: 0;
+  padding: 5px 10px;
+}
+
+h5 {
+  white-space: nowrap;
+  margin: 0;
+}
+
+//js動態
+.js-hide {
+  display: none;
+}
+
+// 新增段落或出處的通用樣式
+.addBtn {
+  display: block;
+  width: 35%;
+  margin: 15px auto 0px;
+  padding: 10px;
+  font-weight: bolder;
+  color: var(--theme-btn-green);
+  background-color: #242527;
+  border: 3px #48845f solid;
+  border-radius: 5px;
+}
+
+//圖片通用設定
+.scoopImg {
+  width: 200px;
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  border: dashed 2px var(--theme-border);
+  cursor: pointer;
+  
+  span {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+.scoopUploadBtn {
+  display: inline-block;
+  height: 100px;
+  padding: 6px;
+  border-radius: 8px;
+
+  .btn {
+    width: 90px;
+    display: block;
+    margin: 8px 10px;
+  }
+  .deleteImgBtn {
+    background-color: var(--theme-btn-red);
+    
+    &:hover {
+      background-color: vat(--theme-btn-red-hover);
+    }
+  }
+
+  .upLoadImgLink {
+    display: block;
+  }
+}
+figure {
+  width: 100%;
+  margin-bottom: 0;
+  padding-bottom: 100px;
+  background-image: url('../images/noImage.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+//-----------自訂義標籤-----------//
+.wrapper .indexContainer {
+  .scoop {
+    width: 86%;
+    max-height: 100vh;
+    overflow-y: auto;
+
+    > div {
+      margin: 0 auto 20px;
+    }
+
+    h5 {
+      border-left: 5px solid var(--theme-border);
+      padding-left: 10px;
+      margin: 0 10px 0 5px;
+    }
+
+    .topper {
+      width: 95%;
+      margin-top: 20px;
+      color: var(--theme-modal-tag);
+
+      > div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 0;
+      }
+      
+      .scoopAuthor {
+        width: 50%;
+      }
+      
+      .scoopEditor {
+        width: 50%;
+      }
+    }
+
+    .banner {
+      width: 95%;
+      color: var(--theme-modal-tag);
+
+      .bannerTp {
+        .sec {
+          .originList {
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+            margin-top: 10px;
+            vertical-align: top;
+            display: inline-block;
+            background-color: #212121;
+            border-radius: 8px;
+
+            .originList-num {
+              display: block;
+              margin: 10px;
+              text-align: center;
+              font-size: 40px;
+            }
+          }
+
+          .origin {
+            width: calc(100% - 200px);
+            display: inline-block;
+        
+            .originDescription {
+              display: flex;
+              align-items: center;
+              margin: 10px 0 10px;
+            }
+  
+            .originUrl .url {
+              height: 35px;
+              max-height: 100px;
+            }
+          }
+
+          .originToolBtn {
+            display: inline-block;
+            width: 90px;
+            vertical-align: top;
+            margin: 0 10px;
+
+            .deleteBtn {
+              background-color: var(--theme-btn-red);
+              &:hover {
+                background-color: var(--theme-btn-red-hover);
+              }
+            }
+
+            .btn {
+              width: 90px;
+              white-space: nowrap;
+              color: var(--theme-btn-text);
+              display: block;
+              margin: 10px 0;
+              position: unset;
+            }
+          }
+        }
+      }
+
+      .bannerBt {
+        .sec {
+          margin-top: 5px;
+          margin-bottom: 20px;
+
+          h5 {
+            padding: 0;
+            margin-left: 0;
+            border: 0;
+          }
+        }
+        .infoList {
+          display: flex;
+          align-items: center;
+
+          .infoList-num {
+            width: 80px;
+            height: 40px;
+            background-color: #212121;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bolder;
+          }
+          .deleteBtn {
+            background-color: var(--theme-btn-dark-bg);
+            border:2px solid var(--theme-border);
+            &:hover {
+              color: var(--theme-btn-text);
+            }
+          }
+          
+          .btn {
+            min-width: 55px;
+            white-space: nowrap;
+            color: var(--theme-modal-tag);
+            margin: 10px;
+            display: block;
+            position: unset;
+          }
+        }
+        .border-bottom {
+          margin: 0 0 20px;
+          border-bottom: 3px solid var(--theme-border) !important;
+        }
+
+        .scoopInfoImg-top, .scoopInfoImg-down {
+          margin-top: 5px;
+          width: calc(50% - 3px);
+          display: inline-flex;
+          align-items: center;
+        }
+
+        .content-header {
+          display: flex;
+          align-items: center;
+          margin: 10px 0 20px;
+        }
+
+        .content {
+          display: flex;
+          .info {
+            max-height: 250px;
+          }
+        }
+      }
+    }
+
+    .footer {
+      width: 95%;
+      font-size: 0;
+
+      .btn {
+        width: calc(50% - 20px);
+        padding: 15px 0;
+        margin: 0 10px 15px;
+      }
+
+      .previewBtn {
+        background-color: var(--theme-btn-green);
+        &:hover {
+          background-color: var(--theme-btn-green-hover);
+        }
+      }
+    }
+  }
+}
+
+.accordion {
+  .accordion-item {
+    background-color: var(--theme-modal-infoBg);
+
+    .accordion-collapse h5 {
+      white-space: pre-wrap;
+    }
+
+    .accordion-header {
+      .accordionBtn {
+        width: 100%;
+        padding: 15px 0;
+        background-color: var(--theme-btn-dark-bg);
+        color: var(--theme-modal-tag);
+      }
+
+      .moreDetailSpace {
+        flex-direction: column;
+        span {
+          width: 100%;
+        }
+      }
+    }
+
+    #sourceList {
+      .accordion-body {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: number;
+        flex-direction: column;
+  
+        li {
+          // width: 50%;
+        }
+      }
+    }
+  }
+}
+
+#moreBtn {
+  .modal-body {
+    //js動態
+    .js-hide {
+      display: none;
+    }
+
+    #sectionList {
+      .accordionBtn {
+        position: relative;
+      }
+
+      .dragIcon {
+        position: absolute;
+        left: 0%;
+        top: 50%;
+        transform: translate(100%, -50%);
+      }
+    }
+
+    .moreDetailSpace {
+      width: 100%;
+      margin: 0;
+      
+      &.moreDetail-status-5 {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+#upload_img_modal {
+  .uploadImgBtn-sendOut {
+    background-color: var(--theme-btn-green);
+    &:hover {
+      background-color: var(--theme-btn-green-hover);
+    }
+  }
+}
+
+#imgPreview {
+  .modal-dialog {
+    max-width: unset;
+    width: 90%;
+
+    .modal-body {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width:731px) {
+  .wrapper .indexContainer .scoop {
+    width: 100%;
+
+    .banner {
+      .bannerTp .sec {
+        .deleteBtn {
+          margin-top: 7px;
+        }
+        .origin {
+          width: calc(100% - 90px);
+
+          .originDescription, .originUrl {
+            width: calc(100% - 20px);
+          }
+        }
+        .originToolBtn {
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+
+          .btn {
+            min-width: 90px;
+            display: inline-block;
+          }
+        }
+      }
+
+      .bannerBt .sec {    
+        .content-header, .content {
+          width: calc(100% - 20px);
+        }
+        .deleteBtn {
+          left: -9px;
+        }
+        .scoopInfoImg-top, .scoopInfoImg-down {
+          width: calc(100% - 10px);
+  
+          .scoopImg {
+            width: 100%;
+            
+  
+            .scoopUploadBtn {
+              width: 100%;
+              text-align: center;
+              font-size: 0;
+  
+              .btn {
+                display: inline-block;
+                width: calc(50% - 20px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

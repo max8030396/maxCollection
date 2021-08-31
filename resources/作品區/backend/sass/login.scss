@@ -1,0 +1,89 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./module/base.scss";
+
+//-----------特殊調整-----------//
+//彈跳視窗設定
+.modal-dialog {
+  justify-content: space-around;
+
+  .modal-content {
+    max-width: 400px;
+  }
+}
+
+//-----------自訂義標籤-----------//
+body {
+  position: relative;
+}
+.wrapper {
+  position: relative;
+  height: 100vh;
+  
+  .member-login {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%) translateY(-40%);
+    width: 300px;
+
+    .logo {
+      margin-bottom: 15px;
+      font-weight: bolder;
+      text-align: center;
+      color: #707070;
+
+      .logoImg {
+        width: 300px;
+        padding-bottom: 80px;
+        margin: 0 auto;
+        background-size: cover;
+        background-image: url('../images/logo.png');
+      }
+    }
+
+    .login {
+      .password {
+        label {
+          position: relative;
+          width: 100%;
+          margin-bottom: 15px;
+
+          svg {
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translate(-150%, -50%);
+          }
+          
+          input {
+            margin-bottom: 0;
+          }
+        }
+      }
+      .btn {
+        width: 100%;
+        margin: 0 auto 15px;
+        padding: 10px;
+        background-color: var(--theme-btn-login-bg);
+        border-radius: 10px;
+      }
+
+      //input外觀設定
+      .form-control {
+        margin-left: 0px;
+        margin-bottom:  15px;
+        border: none;
+        padding: 10px;
+        background-color: #313131;
+        color: #dad0d2;
+        border-radius: 10px;
+
+        &:focus {
+          box-shadow: none;
+          border: none;
+        }
+      }
+    }
+  }
+}
+// 231

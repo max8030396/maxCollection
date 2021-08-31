@@ -1,0 +1,437 @@
+@import "./module/sideBar.scss";
+@import "./module/base.scss";
+
+//-----------自定義標籤-----------//
+.form-control {
+  margin-left: 0px;
+  padding: 3px 7px;
+}
+
+.form-select {
+  margin-left: 0px;
+  padding: 3px 7px;
+}
+
+#moreBtn {
+  .jsEditBefore {
+    display: inline-block;
+  }
+  .jsEditAfter {
+    margin-bottom: 0px;
+  }
+  .modal-dialog {
+    max-width: 800px;
+  }
+  .modal-body {
+    .moreDetailUl {
+      .moreDetailLi {
+        display: inline-flex;
+        width: calc(50% - 5px);
+        margin-right: 5px;
+        .moreDetailSpace {
+          width: 25%;
+          display: inline-block;
+        }
+        
+        &.lastOneLi {
+          width: 100%;
+          padding: 0;
+          background-color: var(--theme-modal-bg);
+
+          .moreDetailRwdLi {
+            width: 50%;
+            padding: 10px;
+            margin-right: 5px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+            background-color: var(--theme-modal-infoBg);
+
+            .moreDetailSpace {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .moreDetailBtnArea {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px auto 10px;
+      border-bottom: 2px solid #424242;
+  
+      .rwdShowBtn_mobile {
+        display: none;
+      }
+    
+      .btn {
+        border-radius: 0.3rem 0.3rem 0 0;
+        background-color: var(--theme-btn-dark-bg);
+      }
+    
+      .btnJs-select {
+        color: var(--theme-btn-text);
+        background-color: #424242;
+      }
+    }
+
+    .moreDetailResume {
+      display: none;
+      height: 370px;
+      overflow: auto;
+  
+      h5 {
+        color: var(--theme-modal-tag);
+        padding-bottom: 5px;
+        border-bottom: 2px solid #424242;
+        display: inline-block;
+      }
+      
+      input {
+        max-width: 150px;
+        margin-right: 5px;
+      }
+  
+      select {
+        max-width: 150px;
+      }
+  
+      textarea {
+        max-width: 450px;
+      }
+
+      //新增藥物按鈕
+      .addDrugBtn {
+        width: 95%;
+        margin: 0 auto 10px;
+        border: none;
+        color: var(--theme-btn-green);
+        font-size: 30px;
+        font-weight: bolder;
+        background-color: #242527;
+        border-radius: 5px;
+        span {
+          max-width: 450px;
+          display: block;
+          border: 3px #48845f solid;
+          margin-left: 2.5%;
+        }
+      }
+     
+      .moreDetailSpace {
+        width: 95%;
+        margin: 0 auto 20px;
+  
+        .moreDetailDrug {
+          margin-bottom: 20px;
+          max-width: 450px;
+          position: relative;
+          
+          //刪除藥物按鈕
+          .deleteDrugBtn {
+            width: 30px;
+            font-weight: bolder;
+            color: var(--theme-btn-red);
+            position: absolute;
+            left: 100%;
+            transform: translateX(-100%);
+            cursor: pointer;
+          }
+  
+          .drugNameTitle {
+            display: inline-block;
+            margin-right: 10px;
+          }
+  
+          .drugEffectTitle {
+            display: block;
+            margin-bottom: 10px;
+          }
+  
+          .drugEffect {
+            margin-bottom: 20px;
+          }
+      
+          .badge {
+            border: 1px darkgrey solid;
+          }
+        }
+      }
+      
+      &.bless {
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+    
+        .blessLi {
+          background-color: var(--theme-modal-infoBg);
+          padding: 8px 20px;
+          margin-bottom: 10px;
+          border-radius: 15px;
+      
+          .blessTitle {
+            width: 25px;
+            display: inline-block;
+            margin-right: 10px;
+            text-align: center;
+          }
+      
+          .badge {
+            margin: 5px 10px;
+          }
+          .doctorBadge {
+            background-color: var(--theme-normal);
+          }
+          .normalBadge {
+            background-color: var(--theme-doctor);
+          }
+        }
+      }
+    }
+
+    .showResume {
+      display: block;
+    }
+  }
+}
+
+#addResume {
+  .modal-body .moreDetailUl {
+    .moreDetailLi {
+      .moreDetailTag {
+        width: 50%;
+      }
+
+      .moreDetailSpace {
+        width: 50%;
+
+        select {
+          width: 100%;
+          display: inline-block;
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+    .addResumeLi {
+      width: calc(100% - 5px);
+    }
+  }
+}
+
+.resume {
+  width: 86%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .resumeTopper {
+    margin: 15px 10px 15px 10px;
+    display: flex;
+    justify-content: space-between;
+
+    .addResume {
+      background-color: var(--theme-btn-green);
+      padding: 6px 12px;
+
+      &:hover {
+        background-color: var(--theme-btn-green-hover);
+      }
+    }
+
+    .resumeSearchBar {
+      display: flex;
+
+      .resumeBtn {
+        border-radius: 5px 0 0 5px;
+      }
+
+      .resumeSearch {
+        width: 185px;
+      }
+    }
+  }
+
+  .resumeBanner {
+    margin: 0 10px 0 10px;
+    overflow: auto;
+    height: calc(100vh - 141px);
+    font-size: 0;
+    
+
+    .wrongSearch {
+      display: none;
+    }
+
+    .resumeInfo {
+      background-color: var(--theme-info-bg);
+      margin-bottom: 5px;
+      border-radius: 5px;
+      text-align: center;
+    }
+  
+    .infoSetting {
+      width: 15%;
+      vertical-align: middle;
+      margin: 15px 0;
+      color: var(--theme-info-text);
+      display: inline-block;
+      // overflow: auto;
+      padding: 0 5px;
+
+      span {
+        white-space: nowrap;
+      }
+
+      svg {
+        transition: fill 300ms ease;
+      }
+
+      &:hover {
+        svg {
+          fill: #bdbdbd;
+        }
+      }
+    }
+
+    .rwdResumeUpdate {
+      width: 20%;
+
+      span {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  // 階層問題故在此新增
+  .paginationJs {
+    // js動態
+    .js-hide{
+      display: none;
+    }
+  }
+}
+
+@media (max-width:1024px) {
+  .resume {
+    .resumeTopper .resumeSearchBar { 
+      height: 30px;
+
+      .resumeSearch {
+        width: 165px;
+      }
+
+      .resumeBtn {
+        padding: 8px;
+        svg {
+          width: 15px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .resumeBanner{
+      .wrongSearch {
+        font-size: 24px;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  #moreBtn{
+    .modal-dialog {
+      max-width: 90%;
+    }
+  }
+}
+
+@media (max-width:731px) {
+  .resume {
+    width: 100%;
+
+    .resumeBanner {
+      .infoSetting {
+        width: 22%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      
+      .rwdResumeUpdate {
+        display: none;
+        // width: 25%;
+      }
+      .rwdResumeId {
+        width: 7%;
+      }
+    }
+  }
+
+  #moreBtn {
+    .modal-dialog {
+      margin: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .modal-body .moreDetailUl {
+      .moreDetailLi {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        &.lastOneLi {
+          flex-direction: column;
+
+          .moreDetailRwdLi {
+            width: 100%;
+            
+            .moreDetailTag{
+              width: 30%;
+              margin: 0;
+            }
+            .moreDetailSpace {
+              width: 70%;
+              margin: 0;
+            }
+          }
+        }
+      }
+  
+      .moreDetailBtnArea {
+        width: 95%;
+        flex-direction: column;
+        position: relative;
+  
+        .btn {
+          background-color: #323436;
+        }
+  
+        .btnJs-select {
+          background-color: #424242;
+          display: block;
+        }
+  
+        .rwdShowBtn_mobile {
+          display: block;
+          margin-top: 10px;
+          left: 100%;
+          position: absolute;
+        }
+  
+        .rwdShowBtn_mobileHide {
+          display: none;
+        }
+      }
+    }
+  }
+}
+// 805

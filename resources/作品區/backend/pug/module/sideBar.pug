@@ -1,0 +1,60 @@
+include ./svg.pug
+include ./link
+
+mixin sideBar(type)
+  .sideBar
+    -let sideBarList = ['overview','user','article','resume','qa','scoop','autofunction','login'];
+    -let rwdSideBarList = ['user','article','resume','qa','scoop','autofunction','login'];
+    
+    //-側邊按鈕
+    each item,index in sideBarList
+      //- 如果item是index，額外新增Logo的DOM及.sideBar-border-top(底線)
+      if item ==='overview'
+        a(href=`${item}.html` class=`sideBarBtn-${index + 1}`)
+          .sideBarLogo xxx
+        .sideBar-border-top
+      else
+        //- 如果item是login，額外新增collapse的DOM及.sideBar-border-top(底線)
+        if item ==='login'
+          button.sideBar-toggle.sideBarBtn.collapsed.font-lg.btn(data-bs-toggle="collapse" data-bs-target="#link-collapse" aria-expanded="false") 連結
+            +svgIcon('linkArrow')
+
+          .collapse#link-collapse
+            ul.sideBar-toggle-nav
+              +link()
+          .sideBar-border-top
+        a(href=`${item}.html` class=`sideBarBtn-${index + 1}`)
+          button(
+              page=`${item}` 
+              class=`${item}SideBtn btn sideBarBtn ${type === item ? 'js-select' : ''}`
+            )
+            +svgIcon(`${item}`)
+  //-rwdSideBar
+  nav.navbar.navbar-light.rwdSideBar
+    //-logo
+    a(href="overview.html")
+      .sideBarLogo xxx
+
+    //-連結
+    .rwdSideBarBtn
+      .nav-item.dropdown
+        a.nav-link.dropdown-toggle#navbarDropdownMenuLink(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false")
+          +svgIcon('threeDots')
+        ul.dropdown-menu(navbarDropdownMenuLink)
+          +link()
+
+      //-hamburger
+      button.navbar-toggler.btn(type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation")
+        +svgIcon('hamburger')
+        
+    //-摺疊顯示的內容
+    .collapse.navbar-collapse#navbarNavDropdown
+      ul.navbar-nav
+        each item in rwdSideBarList
+            li.nav-item
+              a(href=`${item}.html`)
+                button(
+                      page=`${item}` 
+                      class=`${item}SideBtn sideBarBtn btn`
+                    )
+                  +svgIcon(`${item}`)

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title 登入介面
+  body
+    .wrapper
+      .member-login
+        .logo
+          .logoImg
+          span.font-lg 後台管理系統
+        .login
+          .password
+            label(for="loginSpace")
+              svg(data-bs-toggle="tooltip" data-bs-placement="top" title="line輸入：＠登入" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#dbdbdb" class="bi bi-question-circle" viewBox="0 0 16 16")
+                path(d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z")
+                path(d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z")
+              input.font-lg.loginSpace.form-control(placeholder="請輸入驗證碼" type="text")
+          .login-btn.btn 登入
+          
+
+      //- //忘記密碼->輸入email
+      //- .modal.fade#forgetBtn(tabindex="-1" aria-labelledby="forgetBtnLabel" aria-hidden="true")
+      //-   .modal-dialog.modal-dialog-centered
+      //-     .modal-content
+      //-       //上方標題及關閉按鈕
+      //-       .modal-header
+      //-         h5.modal-title 請輸入您的email
+      //-         button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
+            
+      //-       //中央文字區塊
+      //-       .modal-body
+      //-         .account
+      //-           input.loginSpace.form-control.forget-input(placeholder="請輸入Email")
+              
+      //-       .modal-footer
+      //-         button.btn(data-bs-dismiss="modal") 關閉
+      //-         button.btn.forget-btn-send(data-bs-target="#forgetBtn2" data-bs-toggle="modal" data-bs-dismiss="modal") 送出
+
+      //- //忘記密碼->顯示結果
+      //- .modal.fade#forgetBtn2(tabindex="-1" aria-labelledby="forgetBtn2Label" aria-hidden="true")
+        .modal-dialog.modal-dialog-centered
+          .modal-content
+            //上方標題及關閉按鈕
+            .modal-header
+              button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
+            
+            //中央文字區塊
+            .modal-body
+              span.font-lg
+              
+            .modal-footer
+              button.btn.forgetCorrect(data-bs-dismiss="modal") 關閉
+              button.btn.forgetWrong(data-bs-toggle="modal" data-bs-target="#forgetBtn" data-bs-dismiss="modal") 關閉

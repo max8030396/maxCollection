@@ -1,0 +1,154 @@
+@import "./module/sideBar.scss";
+@import "./module/base.scss";
+
+//-----------自定義標籤-----------//
+.article {
+  width: 86%;
+  display: flex;
+  flex-direction: column;
+
+  .articleTopper {
+    margin: 15px 10px 15px 10px;
+    display: flex;
+    justify-content: flex-end;
+
+    // .addArticle {
+    //   background-color: #48845f;
+    //   color: #ddd2d3;
+    //   padding: 6px 12px;
+
+    //   &:hover {
+    //     background-color: #3d8a5a;
+    //     color: #ffffff ;
+    //   }
+    // }
+
+    .articleSearchBar {
+      display: flex;
+
+      .articleBtn {
+        border-radius: 5px 0 0 5px;
+      }
+
+      .articleSearch {
+        width: 150px;
+      
+        &:focus {
+          width: 200px;
+        }
+      }
+    }
+  }
+
+  .articleBanner {
+    margin: 0 10px 0 10px;
+    overflow: auto;
+    height: calc(100vh - 141px);
+    font-size: 0;
+
+    .wrongSearch {
+      font-size: 30px;
+      display: none;
+    }
+
+    .articleInfo {
+      background-color: var(--theme-info-bg);
+      margin-bottom: 5px;
+      border-radius: 5px;
+      text-align: center;
+    }
+  
+    .infoSetting {
+      width: 15%;
+      vertical-align: middle;
+      margin: 15px 0;
+      color: var(--theme-info-text);
+      display: inline-block;
+      padding: 0 5px;
+      
+      .rwdArticleType {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+      }
+
+      span {
+        white-space: nowrap;
+      }
+
+      svg {
+        transition: fill 300ms ease;
+      }
+
+      &:hover {
+        svg {
+          fill: #bdbdbd;
+        }
+      }
+    }
+
+    .articleTitle {
+      width: 40%;
+
+      span {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  // 階層問題故在此新增
+  .paginationJs {
+    // js動態
+    .js-hide{
+      display: none;
+    }
+  }
+}
+
+@media (max-width:1024px) {
+  .article {
+    .articleTopper {
+      .articleSearchBar {
+        height: 30px;
+  
+        .articleBtn {
+          padding: 8px;
+  
+          svg {
+            width: 15px;
+            margin-bottom: 10px;
+          }
+        }
+  
+        .articleSearch {
+          width: 150px;
+  
+          &:focus {
+            width: 150px;
+          }
+        }
+      }
+    }
+
+    .articleBanner {
+      .wrongSearch {
+        font-size: 24px;
+        padding-top: 10px;
+      }
+    }
+  }
+}
+@media (max-width:731px) {
+  .article {
+    width: 100%;
+    .articleBanner {
+      overflow: unset;
+      height: auto;
+    }
+  }
+}
+// 569

@@ -1,0 +1,8 @@
+include ./svg.pug
+
+mixin link()
+  -var linkObj =[{name: 'home',url: 'xxx'},{name: 'zecZec',url: 'xxx'},{name: 'accounting',url: '#'},{name: 'fb',url: 'xxx'}]
+  each data in linkObj
+    li
+      a(href=data.url target="_blank")
+        +svgIcon(data.name)

@@ -1,0 +1,202 @@
+@import "~bootstrap/scss/bootstrap";
+
+.indexContainer {
+  display: flex;
+  align-items: stretch;
+
+  .rwdSideBar {
+    display: none;
+  }
+
+  a:hover {
+    svg {
+      fill: #fff;
+    }
+  }
+
+  .sideBar {
+    width: 14%;
+    min-width: 135px;
+    height: 100vh;
+    background-color: var(--theme-sideBar-bg);
+    overflow: auto;
+
+    svg {
+      margin-right: 7px;
+    }
+    
+    //logo設定
+    .sideBarLogo {
+      width: 100%;
+      height: 0;
+      padding-bottom: 30%;
+      margin: 0 auto;
+      background-image: url(../images/logo.png);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      text-indent: -99999px;
+      cursor: pointer;
+    }
+
+    //按鈕設定
+    .sideBarBtn {
+      width: 100%;
+      padding: 10px;
+      // height: 45px;
+      display: inline-flex;
+      margin-bottom: 8px;
+      align-items: center;
+      background-color: transparent;
+      &.js-select {
+        color:#fff;
+        background-color: #4e5052;
+        svg {
+          fill: #fff;
+        }
+      }
+
+
+      &:hover {
+        background-color: var(--theme-btn-normal-bg-hover);
+      }
+    }
+
+    //連結開合效果
+    .sideBar-toggle {
+      margin-bottom: 0;
+      justify-content: space-between;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+
+      svg {
+        transition: transform .35s ease;
+        transform-origin: 8px 50%;
+      }
+    }
+    
+    //連結標示轉動角度
+    .sideBar-toggle[aria-expanded="true"] svg {
+      transform: rotate(90deg);
+    }
+    
+    //連結內部按鈕設定
+    .sideBar-toggle-nav {
+      margin-bottom: 0;
+      padding: 0;
+      background-color: #2d2d2d;
+      a {
+        padding: 10px;
+        padding-left: 13px;
+        display: flex;
+        align-items: center;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+
+        &:hover {
+          background-color: var(--theme-btn-normal-bg-hover);
+        }
+      }
+    }
+
+    //底線樣式
+    .sideBar-border-top {
+      border: 1px solid #363636;
+      // margin-top: 8px;
+      // margin-bottom: 8px;
+    }
+  }
+}
+
+@media (max-width:1023px) {
+  // .indexContainer {
+  //   .sideBar {
+
+  //     .sideBar-toggle-nav a {
+  //       padding-left: 20px;
+  //     }
+  //   }
+  // }
+}
+
+@media (max-width:731px) {
+  .indexContainer {
+    flex-direction: column;
+
+    .sideBar {
+      display: none;
+    }
+
+    .rwdSideBar {
+      display: flex;
+      background-color: var(--theme-sideBar-bg);
+
+      .sideBarLogo {
+        height: 36px;
+        margin-left: 5px;
+        background-image: url('xxx');
+        padding: 15px;
+        background-size: cover;
+        background-position: center;
+        text-indent: -99999px;
+        cursor: pointer;
+      }
+      
+      .navbar-collapse {
+        margin-top: 10px;
+
+        .navbar-nav {
+          .nav-item {
+            margin-bottom: 10px;
+
+            button {
+              width: 100%;
+              padding-left: 5px;
+              background-color: var(--theme-sideBar-bg);
+              display: flex;
+              align-items: center;
+            }
+          }
+        }
+      }
+
+      .rwdSideBarBtn {
+        display: flex;
+
+        .dropdown {
+          .dropdown-toggle {
+            color: #ababab;
+
+            &::after {
+              display: none;
+            }
+          }
+  
+          .dropdown-menu {
+            min-width: 140px;
+            border: none;
+            background-color: #191919;
+            transform: translateX(-50%);
+
+            a {
+              display: block;
+              width: 110px;
+              margin: 0 auto 5px;
+              font-weight: bold;
+              
+              span {
+                margin-left: 13px;
+                margin-right: 13px;
+              }
+            }
+          }
+        }
+
+        .navbar-toggler {
+          margin: 5px 5px 0 0;
+          padding: 0 5px;
+          background-color: #222223;
+        }
+      }
+    }
+  }
+}
+// 398

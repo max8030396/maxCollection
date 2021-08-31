@@ -1,0 +1,96 @@
+mixin components(type,num)
+  -var paginationIndex = [0,1,2,3,4,5,6];
+  - let deleteListZh = ['會員','文章','故事卡','藥物','專欄文章'];
+  - let deleteListEn = ['User','Article','Resume','Drug','Scoop'];
+  - let searchListZh = ['搜尋姓名或信箱','搜尋文章關鍵字','搜尋主治醫師或病症','搜尋標籤']
+  - let searchListEn = ['user','article','resume','scoop']
+
+  if type === 'pagination'
+    each i in paginationIndex
+      li.page-item
+        if i === 0 
+          a.pageLink.firstPage(href="#" data-Value ="1")
+            span.font-lg 首頁
+        else if i === 6
+          a.pageLink.endPage(href="#" data-Value ="")
+            span.font-lg 最後頁
+        else 
+          a(
+            href = "#"
+            class = `pageLink font-lg li-${i} `
+            data-value = `${i}`
+          )!= `${i}`
+
+  if type === 'delete-modal'
+    .modal.fade(
+      class='delete-modal'
+      moreBtn="-1" 
+      id=`delete${deleteListEn[num]}Modal`
+      aria-labelledby=`delete${deleteListEn[num]}ModalLabel`
+      aria-hidden="true"
+      )
+      .modal-dialog
+        .modal-content
+          //上方標題及關閉按鈕
+          .modal-header
+            if num === 0
+              h1.modal-title.font-xl!= `確認停權此${deleteListZh[num]}？`
+            else
+              h1.modal-title.font-xl!= `確認刪除此${deleteListZh[num]}？`
+            button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
+          
+          //中央文字區塊
+          .modal-body
+            if num === 0
+              h5.font-x!= `${deleteListZh[num]}停權後將禁止帳戶登入，請問確認是否將此會員停權？`
+            else
+              h5.font-x!= `${deleteListZh[num]}刪除後無法返還，請問確認是否刪除？`
+          
+          //底部
+          .modal-footer
+            button.btn.moreBtn.font-md(data-bs-dismiss="modal") 關閉
+            button(
+              id =`confirmDelete${deleteListEn[num]}`
+              class=`btn font-md delete-modalBtn`
+              data-bs-dismiss="modal"
+            ) 確定
+  
+  if type === 'searchBar'
+    button(
+      type="button"
+      class=`btn ${searchListEn[num]}Btn searchBtn`
+      )
+      +svgIcon('search')
+    input(
+      type="search" 
+      class=`${searchListEn[num]}Search`
+      placeholder=`${searchListZh[num]}` 
+      aria-label="search" 
+      )
+  
+  if type === 'alertLogoutPopup'
+    .modal.fade#logoutAlert(tabindex="-1" aria-labelledby="logoutAlertLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false")
+      .modal-dialog
+        .modal-content
+          .modal-header
+            +svgIcon('error')
+            h4.modal-title#exampleModalLabel 您即將離開xxx後台管理系統！
+          .modal-body
+            span.d-block.font-md 離開後將不會存取任何資訊<br>請在時間內選擇是否繼續留在後台
+            span.countDownTime
+            span.font-md 後將執行強制登出
+          .modal-footer
+            button.logoutBtn.btn(type="button") 登出
+            button.stayBtn.btn(type="button" data-bs-dismiss="modal") 維持登入
+
+  //- if type === 'headMeta'
+  //-   <!DOCTYPE html>
+  //-   html(lang="en")
+  //-     head
+  //-       meta(charset="UTF-8")
+  //-       meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  //-       title
+  //-     body
+  //-       .wrapper
+  //-         .indexContainer
+  //- if type === 'pagination'

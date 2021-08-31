@@ -1,0 +1,194 @@
+@import "./module/base.scss";
+
+//-----------自定義標籤-----------//
+.overview {
+  width: 86%;
+
+  > div {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .topper {
+    font-size: 0;
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 25px;
+
+    span {
+      display: block;
+    }
+
+    div {
+      display: inline-block;
+    }
+
+    .topperLeft {
+      width: 100%;
+
+      h5 {
+        color: #ababab;
+      }
+
+      div {
+        width:calc(33% - 20px);
+        margin: 10px;
+      }
+
+      .user {
+        color: #ddd2d3;
+      }
+
+      .normal {
+        color:  var(--theme-doctor);
+      }
+
+      .doctor {
+        color: var(--theme-normal);
+      }
+    }
+
+    .topperRight {
+      width: 100%;
+
+      span {
+        color: #868686;
+      }
+
+      div {
+        width: calc(25% - 20px);
+        color: #545454;
+        margin: 10px;
+        border-right: 1px solid #424242;
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+
+  .banner {
+    display: flex;
+    justify-content: space-around;
+    color: #ddd2d3;
+
+    .bannerLeft {
+      width: calc(50% - 8px);
+    }
+
+    .bannerRight {
+      width: calc(50% - 8px);
+    }
+
+    .title {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 10px 10px 0 10px;
+      margin-bottom: 5px;
+      border-bottom: 2px solid #424242;
+
+      .textArea {
+        svg {
+          margin-right: 3px;
+          margin-bottom: 0.4rem;
+        }
+        h5 {
+          display: inline-block;
+        }
+      }
+
+      .buttonArea {
+        display: flex;
+        justify-content: center;
+
+        .btn {
+          padding: 6px 8px;
+          color: #868686;
+          background-color: var(--theme-btn-dark-bg);
+          border-radius: 0.25rem 0.25rem 0 0;
+
+          &:hover {
+            color: var(--theme-btn-text-hover);
+            background-color: #111;
+          }
+
+          &.js-select {
+            color: var(--theme-btn-text-hover);
+            background-color: #111;
+          }
+        }
+      }
+    }
+
+    ul {
+      padding: 0;
+
+      li {
+        display: flex;
+        padding: 10px 15px;
+        margin-top: 5px;
+        color: #ababab;
+        background-color: var(--theme-info-bg);
+        justify-content: space-between;
+        align-items: center;
+        transition: 150ms ease;
+
+        &:hover {
+          color: var(--theme-btn-text-hover);
+        }
+
+        a {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          transition: 150ms ease;
+        }
+
+        span {
+          max-width: 80%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width:1024px) {
+  .overview {
+    max-height: 100vh;
+    overflow: auto;
+
+    .banner{
+      flex-direction: column;
+
+      .bannerLeft {
+        width: 100%;
+      }
+  
+      .bannerRight {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width:731px) {
+  .overview {
+    width: 100%;
+
+    .topper {
+      margin-bottom: 5px;
+      margin-top: 10px;
+
+      .topperRight div {
+        margin: 10px 0 10px 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+// 311
