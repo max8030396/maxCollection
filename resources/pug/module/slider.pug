@@ -9,7 +9,7 @@ mixin superSlider(number, index)
       - for(var i = 0; i < number; i = i + 1) {
         nav.ss_photo_nav(class=`ss_photo_nav_${i + 1}` data-index=`${i + 1}`)
           div
-            img(src=`../images/ss_${index}_photo${i + 1}.png` width="100%" height="100%")
+            img(src=`./images/ss_${index}_photo${i + 1}.png` width="100%" height="100%")
       - }
 
     ul.ss_paginator

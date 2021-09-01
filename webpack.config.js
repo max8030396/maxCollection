@@ -13,7 +13,6 @@ let SERVER_PORT;
 //預設進入的頁面
 let initProject = {
   openPage: 'index',
-  // pages: ['login','overview','user','article','resume','qa','scoop','autofunction','scoopEdit','scoopPost']
   pages: ['index']
 };
 
@@ -146,7 +145,7 @@ module.exports = (env, argv) => {
               loader: 'sass-loader',
               options: {
                 sourceMap: false,
-                data: () => `$BaseUrl: '/';`,
+                data: () => `$BaseUrl: './';`,
                 // Sass變數取代 類似String-replace-loader
                 // sassOptions: {
                 //   data: () => `$BaseUrl: '${PUBLIC_PATH}';`,
