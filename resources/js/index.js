@@ -3,7 +3,7 @@ const $s4_block = $('.sec4_block');
 let topperBarHeight;
 
 
-$('.topperBar-link2, .footer_link1').on('click', function() {
+$('.topperBar-link1, .footer_link1').on('click', function() {
   topperBarHeight = $(window).width() >= 731 ? 98 : 80
   window.scroll({
     top: $('.sec2')[0].offsetTop - topperBarHeight,
@@ -12,7 +12,7 @@ $('.topperBar-link2, .footer_link1').on('click', function() {
   });
 })
 
-$('.topperBar-link3, .footer_link2').on('click', function() {
+$('.topperBar-link2, .footer_link2').on('click', function() {
   topperBarHeight = $(window).width() >= 731 ? 98 : 80
   window.scroll({
     top: $('.sec3')[0].offsetTop - topperBarHeight,
@@ -21,7 +21,7 @@ $('.topperBar-link3, .footer_link2').on('click', function() {
   });
 })
 
-$('.topperBar-link4, .footer_link3').on('click', function() {
+$('.topperBar-link3, .footer_link3').on('click', function() {
   topperBarHeight = $(window).width() >= 731 ? 98 : 80
   window.scroll({
     top: $('.sec4')[0].offsetTop - topperBarHeight,

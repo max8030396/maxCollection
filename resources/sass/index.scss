@@ -20,26 +20,8 @@
     transform: translateX(-50%);
     position: fixed;
     left: 50%;
+    font-size: 0;
     
-  
-    .toperBar-link1 {
-      width: 60px;
-      height: 49px;
-      margin-left: 30px;
-      box-sizing: border-box;
-      color: #888888;
-      
-      svg {
-        transition: fill ease 400ms;
-      }
-
-      &:hover {
-        svg {
-          fill: #fff;
-        }
-      }
-    }
-  
     div {
       display: inline-block;
       padding: 10px 0px;
@@ -49,24 +31,28 @@
       color: #888888;
       transition: color ease 400ms;
       cursor: pointer;
+
+      a {
+        text-decoration: none;
+        transition: color ease 400ms;
+        color: #888888;
+  
+        &:hover {
+          color: #ffffff;
+        }
+      }
   
       &:hover {
         color: #ffffff;
       }
     }
 
-    a {
-      text-decoration: none;
-      transition: color ease 400ms;
-      color: #888888;
-
-      &:hover {
-        color: #ffffff;
-      }
+    .topperBar-link1 {
+      margin-left: 40px;
     }
+
+    
   }
-
-
 
   .sec1 {
     width: 100%;
@@ -84,7 +70,7 @@
     }
 
     .sec1-text {
-      width: 450px;
+      min-width: 190px;
       left: 50%;
       top: 50%;
       text-align: center;
@@ -99,8 +85,32 @@
       }
 
       span {
-        white-space: nowrap;
-        font-size: 18px;
+        font-size: 20px;
+      }
+    }
+
+    .sec1-btn {
+      display: flex;
+      align-items: center;
+      padding: 0.575rem 1em;
+      min-width: 148px;
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -80%);
+      background-color: #0a58ca;
+
+      a {
+        color: #dadada;
+        text-decoration: none;
+      }
+
+      &:hover {
+        background-color: #126df1;
+      }
+
+      &:focus {
+        box-shadow: unset;
       }
     }
   }
@@ -137,7 +147,7 @@
         .about_title {
           width: 70%;
           margin-bottom: 20px;
-          border-bottom: 2px solid;
+          border-bottom: 2px solid #676363;
 
           h5 {
             font-size: 30px;
@@ -168,13 +178,14 @@
     
     .skill {
       width: calc(33.33% - 30px);
+      margin-bottom: 30px;
 
       .skill_title {
         font-size: 30px;
         margin: 0;
         display: flex;
         width: 100%;
-        border-bottom: 1px solid #000;
+        border-bottom: 2px solid #676363;
         align-items: center;
 
         h5 {
@@ -204,11 +215,22 @@
         }
       }
 
-      .skill_content span {
-        display: block;
-        margin-left: 7px;
+      .skill_content {
+        width: 100%;
+        display: inline-flex;
+        flex-wrap: wrap;
         margin-top: 8px;
-        font-size: 20px;
+        align-items: center;
+
+        .btn {
+          margin-left: 7px;
+          margin-top: 8px;
+          font-size: 16px;
+          background-color: #262626;
+          color: #dbdbdb;
+          cursor: unset;
+          border-radius: 10px;
+        }
       }
     }
   }
@@ -253,7 +275,6 @@
           margin-bottom: 10px;
 
           h5 {
-            
             display: inline-block;
           }
 
@@ -390,27 +411,15 @@
   }
 }
 
-.tb-desktop {
-  display: block;
-}
-
-.tb-rwd {
-  display: none;
-}
-
 @media all and (max-width:1024px) {
   .wrapper {
-    .sec2 {
-      .sce2_block {
-        .block_about {
-          .about_title {
-            width: 80%;
-          }
-  
-          .about_text {
-            width: 80%;
-          }
-        }
+    .sec2 .sce2_block .block_about {
+      .about_title {
+        width: 80%;
+      }
+
+      .about_text {
+        width: 80%;
       }
     }
 
@@ -423,6 +432,7 @@
 
         .skill_title {
           margin-bottom: 30px;
+          
           span {
             width: calc(33% - 8px);
             display: inline-block;
@@ -465,6 +475,17 @@
 
 @media all and (max-width:731px) {
   .wrapper {
+    .toperBar {
+      display: flex;
+      align-items: center;
+      height: 80px;
+      
+      div {
+        margin: 25px 10px;
+        font-size: 14px;
+      }
+    }
+
     .sec1 { 
       .sec1-bg {
         height: 354px;
@@ -476,37 +497,7 @@
         }
         span {
           font-size: 14px;
-          white-space: nowrap;
         }
-      }
-    }
-
-    .toperBar {
-      height: 80px;
-      display: flex;
-      align-items: center;
-      
-      white-space: nowrap;
-
-      .toperBar-link1 {
-        margin: 0;
-        padding: 0;
-        height: 35px;
-        width: 35px;
-        margin-left: 5%;
-        vertical-align: unset;
-      }
-
-      a {
-        margin: 0;
-        padding: 0;
-        margin-left: 5%;
-        white-space: nowrap;
-      }
-
-      div {
-        margin: 25px 10px;
-        font-size: 14px;
       }
     }
 
@@ -534,15 +525,8 @@
       }
     }
 
-    .sec4 {
-      .sec4_block {
-        .block_left {
-          .ss_photo {
-            min-height: unset;
-          }
-        }
-      }
-
+    .sec4 .sec4_block .block_left .ss_photo {
+      min-height: unset;
     }
 
     .footer {
