@@ -209,7 +209,7 @@
           // margin: 0 10px 8px;
           // height: 35px;
           // background-repeat: no-repeat;
-          background-image: url('.xwx./images/icon/graphic-design.png');
+          background-image: url('../images/icon/graphic-design.png');
         }
       }
 
@@ -278,24 +278,30 @@
             display: flex;
             align-items: center;
             padding: 0.575rem 1em;
-            // color: #dadada;
             background-color: #0a58ca;
-            border-radius: 0.45rem;
+            border-radius: 0.45rem;            
+          }
 
-            a {
-              color: #dadada;
-              text-decoration: none;
-              margin-right: 5px;
-            }
-            
-            svg {
-              transition:fill 0.15s ease-in-out;
-            }
+          a {
+            color: #dadada;
+            text-decoration: none;
+            margin-right: 5px;
 
             &:hover {
               background-color: #126df1;
             }
+
+            &:focus {
+              box-shadow: unset;
+            }
           }
+          
+          svg {
+            margin-left: 8px;
+            transition:fill 0.15s ease-in-out;
+          }
+
+          
         }
       }    
     }
