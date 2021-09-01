@@ -50,7 +50,6 @@
       transition: color ease 400ms;
       cursor: pointer;
   
-  
       &:hover {
         color: #ffffff;
       }
@@ -112,7 +111,6 @@
     margin: 0 auto;
     padding: 30px 5%;
     background-color: #fefefe;
-    // background-image: url('./images/banner-1.jpg');;
     
     .sce2_block {
       display: flex;
@@ -128,7 +126,6 @@
     
         .about_text {
           width: 70%;
-          // height: 30px;
           font-size: 18px;
 
           span {
@@ -153,10 +150,8 @@
         min-width: 190px;
         min-height: 270px;
         margin-right: 5%;
-        // padding-bottom: 25%;
         background-size: contain;
         background-repeat: no-repeat;
-        // background-color: ;
         background-image: url('../images/mysilfe.jpg');
       }
     }
@@ -199,39 +194,23 @@
         }
 
         .skill_icon1 {
-          // width: 35px;
-          // margin: 0 10px 8px;
-          // height: 35px;
-          // background-repeat: no-repeat;
           background-image: url('../images/icon/pagination.png');
         }
         .skill_icon2 {
-          // width: 35px;
-          // margin: 0 10px 8px;
-          // height: 35px;
-          // background-repeat: no-repeat;
           background-image: url('../images/icon/web-design.png');
         }
         .skill_icon3 {
-          // width: 35px;
-          // margin: 0 10px 8px;
-          // height: 35px;
-          // background-repeat: no-repeat;
           background-image: url('../images/icon/graphic-design.png');
         }
       }
 
-      .skill_content {
-        span {
-          display: block;
-          margin-left: 7px;
-          margin-top: 8px;
-          font-size: 20px;
-        }
+      .skill_content span {
+        display: block;
+        margin-left: 7px;
+        margin-top: 8px;
+        font-size: 20px;
       }
     }
-
-    
   }
 
   .sec4 {
@@ -254,9 +233,11 @@
       .block_left {
         width: 50%;
         margin: auto 0;
+
         .ss_wrap_1 .ss_photo {
           min-height: 280px;
         }
+
         .ss_photo{
           min-height: 400px;
         }
@@ -270,6 +251,20 @@
           color: #a9a9a9;
           border-bottom: 2px solid #a9a9a9;
           margin-bottom: 10px;
+
+          h5 {
+            
+            display: inline-block;
+          }
+
+          a {
+            font-size: 1.25rem;
+            transition: color ease 200ms;
+            
+            &:hover {
+              color: blue;
+            }
+          }
         }
 
         .block_right_content {
@@ -308,8 +303,6 @@
             margin-left: 8px;
             transition:fill 0.15s ease-in-out;
           }
-
-          
         }
       }    
     }
@@ -322,16 +315,15 @@
     .footer-top {
       width: 90%;
       max-width: 1200px;
-      // border-bottom: 1px solid #333;
       margin: 0 auto 20px;
       padding: 50px 0 20px;
     
       div {
+        display: inline-block;
         color: #6e6d6d;
-        cursor: pointer;
         text-decoration: none;
         margin-right:10px;
-        display: inline-block;
+        cursor: pointer;
     
         &:hover{
           color: #ffffff;
@@ -364,8 +356,6 @@
 
       .tool_icon {
         width: 50%;
-        // margin: 0;
-        // justify-content: space-between;
   
         .icon {
           padding-bottom: 40px;
@@ -410,8 +400,6 @@
 
 @media all and (max-width:1024px) {
   .wrapper {
-    
-
     .sec2 {
       .sce2_block {
         .block_about {
