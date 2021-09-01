@@ -28,9 +28,9 @@ html(lang="en")
         .sec1-text
           h1 態度決定一切<br>努力成就不可能
           span 「三分天注定七分靠打拼」憑藉著努力完成我的夢想
-        .sec1-btn.btn
-          a.me-2(href="https://github.com/max8030396/maxCollection" target="_blank") 前往GitHub
-          svg(xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill=" #dadada" class="bi bi-arrow-right-circle" viewBox="0 0 16 16")
+        a.sec1-btn.btn.btn-primary(href="https://github.com/max8030396/maxCollection" target="_blank")
+          span.me-2(href="https://github.com/max8030396/maxCollection" target="_blank") 前往GitHub
+          svg(xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill=" currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16")
             path(fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z")
       section.sec2
         .sce2_block
@@ -91,8 +91,8 @@ html(lang="en")
               .block_right_content
                 span!= item.info
               .block_right_btn
-                a.btn(href=`${item.url}` target="_blank") 查案原始碼
-                  svg(xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill=" #dadada" class="bi bi-arrow-right-circle" viewBox="0 0 16 16")
+                a.btn.btn-primary(href=`${item.url}` target="_blank") 查案原始碼
+                  svg(xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16")
                     path(fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z")
 
           .border-bottom

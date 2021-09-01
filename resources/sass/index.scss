@@ -98,16 +98,8 @@
       top: 80%;
       left: 50%;
       transform: translate(-50%, -80%);
-      background-color: #0a58ca;
-
-      a {
-        color: #dadada;
-        text-decoration: none;
-      }
-
-      &:hover {
-        background-color: #126df1;
-      }
+      // color: #dadada;
+      text-decoration: none;
 
       &:focus {
         box-shadow: unset;
@@ -302,7 +294,6 @@
             display: flex;
             align-items: center;
             padding: 0.575rem 1em;
-            background-color: #0a58ca;
             border-radius: 0.45rem;            
           }
 
@@ -310,10 +301,6 @@
             color: #dadada;
             text-decoration: none;
             margin-right: 5px;
-
-            &:hover {
-              background-color: #126df1;
-            }
 
             &:focus {
               box-shadow: unset;
