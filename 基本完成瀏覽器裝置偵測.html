@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+
+  const ua = navigator.userAgent.toLowerCase();
+  const testUa = function (regexp) {
+    return regexp.test(ua);
+  }
+  document.write(ua);
+  // 判斷系統別
+  let system = "unknown";
+  if (testUa(/windows|win32|win64|wow32|wow64/ig)) {
+    system = "Windows"; // window系統
+  } else if (testUa(/macintosh|macintel/ig)) {
+    system = "Macos"; // macos系統
+  } else if (testUa(/x11/ig)) {
+    system = "Linux"; // linux系統
+  } else if (testUa(/android|adr/ig)) {
+    system = "Android"; // android系統
+  } else if (testUa(/ios|iphone|ipad|ipod|iwatch/ig)) {
+    system = "Ios"; // ios系統
+  }
+
+  // 判斷使用裝置
+  let platform = "unknow";
+  console.log('system',system)
+  if (system === "Windows" || system === "Macos" || system === "Linux") {
+    platform = "Desktop"; // 桌面端
+  } else if (system === "Android" || system === "Ios" || testUa(/mobile/ig)) {
+    platform = "Mobile"; // 移動端
+  }
+
+  // 判斷瀏覽器 無法查詢IE
+  let engine = "unknow";
+  let supporter = "unknow";
+  if (testUa(/applewebkit/ig) && testUa(/safari/ig)) {
+    engine = "webkit"; // webkit核心
+    if (testUa(/edge/ig) || testUa(/Edge/ig) || testUa(/Edg/ig)) {
+      supporter = "Edge"; // edge瀏覽器
+    } else if (testUa(/opr/ig)) {
+      supporter = "Oepera"; // opera瀏覽器
+    } else if (testUa(/chrome/ig)) {
+      supporter = "Chrome"; // chrome瀏覽器
+    } else { 
+      supporter = "Safari"; // safari瀏覽器
+    } 
+  } else if (testUa(/gecko/ig) && testUa(/firefox/ig)) {
+    engine = "gecko"; // gecko核心
+    supporter = "Firefox"; // firefox瀏覽器
+  } else if (testUa(/presto/ig)) {
+    engine = "presto"; // presto核心
+    supporter = "Opera"; // opera瀏覽器
+  } else if (testUa(/trident|compatible|msie/ig)) {
+    engine = "trident"; // trident核心
+    supporter = "IE"; // IE瀏覽器
+  }
+
+  // alert('瀏覽器：' + supporter + ' 裝置：' + platform + ' 系統：' + system)
+
+</script>
+
+</html>
